@@ -1,16 +1,25 @@
 import { Injectable } from '@angular/core';
 import {
-  Router, Resolve,
+  Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import {Opportunity} from "../models/opportunity.model";
+import {OpportunityService} from "../services/opportunity.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class OpportunityResolver implements Resolve<boolean> {
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
+export class OpportunityResolver implements Resolve<Opportunity> {
+
+  constructor(private opportunityService: OpportunityService) {}
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Opportunity> {
+    const id = route.paramMap.get('id');
+    if(!id) {
+      // handle error
+    }
+    return this.opportunityService.getById(+id!)
   }
 }

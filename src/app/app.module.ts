@@ -7,16 +7,22 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OpportunityService } from "./services/opportunity.service";
 import {OpportunityResolver} from "./resolvers/opportunity.resolver";
+import { MatCardModule} from "@angular/material/card";
+import { HttpClientModule} from "@angular/common/http";
+import { OpportunityComponent } from './opportunity/opportunity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    OpportunityComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [
     OpportunityService,
