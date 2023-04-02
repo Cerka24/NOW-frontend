@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {OpportunityComponent} from "./opportunity/opportunity.component";
 import {OpportunityResolver} from "./resolvers/opportunity.resolver";
+import {MyWorkComponent} from "./my-work/my-work.component";
+import {MyWorkResolver} from "./resolvers/my-work.resolver";
 
 const routes: Routes = [
   {
@@ -15,7 +17,14 @@ const routes: Routes = [
     resolve:{
       'opportunity': OpportunityResolver
     }
-  }
+  },
+  {
+    path: "myWork",
+    component: MyWorkComponent,
+    resolve:{
+      'works': MyWorkResolver
+    }
+}
 ];
 
 @NgModule({
