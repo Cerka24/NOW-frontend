@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {Onboarding} from "../../models/onboarding.model";
@@ -11,7 +11,7 @@ import {Onboarding} from "../../models/onboarding.model";
   templateUrl: './onboarding.component.html',
   styleUrls: ['./onboarding.component.css']
 })
-export class OnboardingComponent {
+export class OnboardingComponent implements OnInit, OnDestroy{
 
   public universityYear?: number | any
   public organization: string = ''
