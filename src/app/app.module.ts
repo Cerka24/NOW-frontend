@@ -10,19 +10,35 @@ import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import { MatCardModule} from "@angular/material/card";
 import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
+import { OrgOpportunityComponent } from './org-opportunity/org-opportunity.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatButtonModule} from "@angular/material/button";
+import { LogoutComponent } from './logout/logout.component';
+import { CreateOpportunityComponent } from './create-opportunity/create-opportunity.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    OpportunityComponent
+    OpportunityComponent,
+    OrgOpportunityComponent,
+    LogoutComponent,
+    CreateOpportunityComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     OpportunityService,
