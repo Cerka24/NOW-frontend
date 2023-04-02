@@ -25,6 +25,14 @@ const routes: Routes = [
       'opportunity': OpportunityResolver
     }
   },
+  {
+    path:"org-opportunityId/createOpportunity",
+    component:CreateOpportunityComponent
+  },
+  {
+    path:"org-opportunityId",
+    component:CreateOpportunityComponent
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,32 @@
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  border:2px solid black;
+  border-radius: 20px;
+  width: 30%;
+  padding: 15px;
+  margin-left: 555px;
+}
+
+#title {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 15px;
+}
+
+div button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background:#F28245;
+  color: white;
+  width: 50%;
+}
