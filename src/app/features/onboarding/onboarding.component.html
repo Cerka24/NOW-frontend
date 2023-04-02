@@ -1,0 +1,51 @@
+<body>
+  <div id="form">
+    <form (submit)="submitForm()" class="example-form">
+      <h2 id="title">Hello! Please tell us a little about <br> yourself.</h2>
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" type="text">
+          <mat-label> University year </mat-label>
+          <input matInput placeholder="Ex. 3"> {{universityYear}}
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label> Choose organization </mat-label>
+          <input matInput placeholder="Ex. SSST"> {{organization}}
+        </mat-form-field></td>
+      </tr></table>
+
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label> Short bio </mat-label>
+          <textarea matInput placeholder="">{{shortBio}}</textarea>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label> List of certificates </mat-label>
+          <textarea matInput placeholder="">{{certificates}}</textarea>
+        </mat-form-field>
+      </p>
+
+      <table class="example-full-width" cellspacing="0">
+        <tr><td><mat-form-field class="example-full-width">
+          <mat-label> Linkedin URL </mat-label>
+          <input matInput placeholder="">{{linkedinUrl}}
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label> GPA </mat-label>
+          <input matInput placeholder="Ex. 4.0" value="">{{gpa}}
+        </mat-form-field></td>
+        </tr>
+        <td><mat-form-field id="image_upload">
+          <mat-label> Upload image </mat-label>
+          <textarea matInput placeholder="">{{uploadImage}}</textarea>
+        </mat-form-field></td>
+      </table>
+      <div class="example-button-row" id="example-flex-container">
+        <button type="submit" mat-stroked-button>Submit</button>
+        <button type="button" (click)="navigateToHomepage()" mat-stroked-button>Close</button>
+      </div>
+    </form>
+  </div>
+</body>
+

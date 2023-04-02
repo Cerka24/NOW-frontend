@@ -1,7 +1,10 @@
 <p>{{title}}</p>
-
+<div>
+  <button type="button" (click)="navigateToOnboarding()">Onboarding</button>
+</div>
 
 <div>
+
   <mat-card (click)="navigateToOpportunity(op.id)" class="example-card" *ngFor="let op of opportunities;">
     <img mat-card-image src="{{op.coverImage}}" alt="Cover">
     <mat-card-subtitle>Opportunity</mat-card-subtitle>

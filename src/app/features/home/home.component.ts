@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {Opportunity} from "../models/opportunity.model";
+import {Opportunity} from "../../models/opportunity.model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {OpportunityService} from "../services/opportunity.service";
+import {OpportunityService} from "../../services/opportunity.service";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -31,4 +31,8 @@ export class HomeComponent {
     this.router.navigate([path])
   }
 
+  navigateToOnboarding(): void {
+    const path = "onboarding"
+    this.router.navigate([path])
+  }
 }

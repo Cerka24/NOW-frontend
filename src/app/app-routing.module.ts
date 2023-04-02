@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from "./home/home.component";
-import {OpportunityComponent} from "./opportunity/opportunity.component";
+import {HomeComponent} from "./features/home/home.component";
+import {OpportunityComponent} from "./features/opportunity/opportunity.component";
 import {OpportunityResolver} from "./resolvers/opportunity.resolver";
+import {OnboardingComponent} from "./features/onboarding/onboarding.component";
+import {OnboardingResolver} from "./resolvers/onboarding.resolver";
 
 const routes: Routes = [
   {
@@ -14,6 +16,13 @@ const routes: Routes = [
     component: OpportunityComponent,
     resolve:{
       'opportunity': OpportunityResolver
+    }
+  },
+  {
+    path: "onboarding",
+    component: OnboardingComponent,
+    resolve:{
+      'onboarding': OnboardingResolver
     }
   }
 ];
