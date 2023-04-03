@@ -10,19 +10,24 @@ import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import { MatCardModule} from "@angular/material/card";
 import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
+import { LandingComponent } from './landing/landing.component';
+import {MatLegacyButtonModule} from "@angular/material/legacy-button";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    OpportunityComponent
+    OpportunityComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatLegacyButtonModule
   ],
   providers: [
     OpportunityService,
