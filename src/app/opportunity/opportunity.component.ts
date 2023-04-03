@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Opportunity} from "../../models/opportunity.model";
+import {Opportunity} from "../models/opportunity.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 

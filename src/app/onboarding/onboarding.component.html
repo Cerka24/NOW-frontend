@@ -1,18 +1,26 @@
 <body>
   <div id="form">
-    <form (submit)="submitForm()" class="example-form">
+    <form [formGroup]="onboardingForm" (submit)="submitForm()" class="example-form">
       <h2 id="title">Hello! Please tell us a little about <br> yourself.</h2>
       <table class="example-full-width" cellspacing="0"><tr>
         <td><mat-form-field appearance="fill">
           <mat-label>University year</mat-label>
-          <mat-select>
-            <mat-option value="option"> {{universityYear }} </mat-option>
+          <mat-select [formControlName]="'universityYear'">
+            <mat-option  value="option"> 1 </mat-option>
+            <mat-option  value="option"> 2 </mat-option>
+            <mat-option  value="option"> 3 </mat-option>
+            <mat-option  value="option"> 4 </mat-option>
+            <mat-option  value="option"> 5 </mat-option>
+            <mat-option  value="option"> 6 </mat-option>
           </mat-select>
         </mat-form-field></td>
         <td><mat-form-field appearance="fill">
           <mat-label>Choose organization</mat-label>
-          <mat-select>
-            <mat-option value="option"> {{organization}} </mat-option>
+          <mat-select [formControlName]="'organization'">
+            <mat-option value="option"> SSST </mat-option>
+            <mat-option value="option"> IUS </mat-option>
+            <mat-option value="option"> IBU </mat-option>
+            <mat-option value="option"> MOP </mat-option>
           </mat-select>
         </mat-form-field></td>
       </tr></table>
@@ -20,33 +28,33 @@
       <p>
         <mat-form-field class="example-full-width">
           <mat-label> Short bio </mat-label>
-          <textarea matInput placeholder="">{{shortBio}}</textarea>
+          <textarea type="text" [formControlName]="'shortBio'" matInput placeholder=""></textarea>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field class="example-full-width">
           <mat-label> List of certificates </mat-label>
-          <textarea matInput placeholder="">{{certificates}}</textarea>
+          <textarea type="text" [formControlName]="'certificates'" matInput placeholder=""></textarea>
         </mat-form-field>
       </p>
 
       <table class="example-full-width" cellspacing="0">
         <tr><td><mat-form-field class="example-full-width">
           <mat-label> Linkedin URL </mat-label>
-          <input matInput placeholder="">{{linkedinUrl}}
+          <input type="text" [formControlName]="'linkedinUrl'" matInput placeholder="">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width">
           <mat-label> GPA </mat-label>
-          <input matInput placeholder="Ex. 4.0" value="">{{gpa}}
+          <input type="number" [formControlName]="'gpa'" matInput placeholder="Ex. 4.0" value="">
         </mat-form-field></td>
         </tr>
         <td><mat-form-field id="image_upload">
           <mat-label> Upload image </mat-label>
-          <textarea matInput placeholder="">{{uploadImage}}</textarea>
+          <textarea type="text" [formControlName]="'uploadImage'" matInput placeholder=""></textarea>
         </mat-form-field></td>
       </table>
       <div class="example-button-row" id="example-flex-container">
-        <button type="submit" mat-stroked-button>Submit</button>
+        <button type="submit" (click)="navigateToHomepage()" mat-stroked-button>Submit</button>
         <button type="button" (click)="navigateToHomepage()" mat-stroked-button>Close</button>
       </div>
     </form>
