@@ -15,6 +15,13 @@ import {MatTableModule} from "@angular/material/table";
 import {MyWorkService} from "./services/my-work.service";
 import {MyWorkResolver} from "./resolvers/my-work.resolver";
 import {MatButtonModule} from "@angular/material/button";
+import { LoginComponent } from './login/login.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { HeaderAuthComponent } from './header-auth/header-auth.component';
+import { RegisterComponent } from './register/register.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -29,8 +36,16 @@ import {MatButtonModule} from "@angular/material/button";
     BrowserAnimationsModule,
     MatCardModule,
     HttpClientModule,
+    MatInputModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    LoginComponent,
+    MatToolbarModule,
+    HeaderAuthComponent,
+    RegisterComponent,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     OpportunityService,
