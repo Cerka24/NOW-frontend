@@ -12,7 +12,26 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$now-frontend-primary: mat.define-palette(mat.$indigo-palette);
+
+$dark-text: #000000;
+$dark-primary-text: rgba($dark-text, 0.87);
+
+$mat-primary: (
+  main: #f28245,
+  lighter: #fbdac7,
+  darker: #ec652e,
+  100:  #f28245,
+  200: #f28245,
+  500: #f28245,
+  700:  #f28245,
+  contrast : (
+    main: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $dark-primary-text,
+  )
+);
+
+$now-frontend-primary: mat.define-palette($mat-primary);
 $now-frontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
@@ -32,4 +51,7 @@ $now-frontend-theme: mat.define-light-theme((
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($now-frontend-theme);
+
+
+
 
