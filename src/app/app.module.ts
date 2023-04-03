@@ -10,6 +10,15 @@ import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import { MatCardModule} from "@angular/material/card";
 import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
+
+import { OrgOpportunityComponent } from './org-opportunity/org-opportunity.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import { LogoutComponent } from './logout/logout.component';
+import { CreateOpportunityComponent } from './create-opportunity/create-opportunity.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {ReactiveFormsModule} from "@angular/forms";
+
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
@@ -36,6 +45,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     AppComponent,
     HomeComponent,
     OpportunityComponent,
+    OrgOpportunityComponent,
+    LogoutComponent,
+    CreateOpportunityComponent
     OnboardingComponent
     StudentListComponent,
     MyWorkComponent,
@@ -49,6 +61,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     BrowserAnimationsModule,
     MatCardModule,
     HttpClientModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
