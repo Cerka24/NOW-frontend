@@ -10,25 +10,33 @@ import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import { MatCardModule} from "@angular/material/card";
 import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
-import { StudentListComponent } from './student-list/student-list.component';
+import { OnboardingComponent } from './onboarding/onboarding.component';
+import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {OnboardingService} from "./services/onboarding.service";
+import {OnboardingResolver} from "./resolvers/onboarding.resolver";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import { StudentListComponent } from './student-list/student-list.component';
 import {MatTableModule} from "@angular/material/table";
 import { MyWorkComponent } from './my-work/my-work.component';
 import {MyWorkService} from "./services/my-work.service";
 import {MyWorkResolver} from "./resolvers/my-work.resolver";
 import { LoginComponent } from './login/login.component';
-import {MatInputModule} from "@angular/material/input";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { HeaderAuthComponent } from './header-auth/header-auth.component';
 import { RegisterComponent } from './register/register.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     OpportunityComponent,
+    OnboardingComponent
     StudentListComponent,
     MyWorkComponent,
     RegisterComponent,
@@ -41,17 +49,22 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     BrowserAnimationsModule,
     MatCardModule,
     HttpClientModule,
-    MatTableModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatTableModule,
     MatSnackBarModule,
     MatToolbarModule,
-    FormsModule,
     ReactiveFormsModule
   ],
   providers: [
     OpportunityService,
     OpportunityResolver,
+    OnboardingService,
+    OnboardingResolver
     MyWorkService,
     MyWorkResolver
   ],
