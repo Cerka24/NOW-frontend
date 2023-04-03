@@ -3,13 +3,17 @@
     <form (submit)="submitForm()" class="example-form">
       <h2 id="title">Hello! Please tell us a little about <br> yourself.</h2>
       <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width" type="text">
-          <mat-label> University year </mat-label>
-          <input matInput placeholder="Ex. 3"> {{universityYear}}
+        <td><mat-form-field appearance="fill">
+          <mat-label>University year</mat-label>
+          <mat-select>
+            <mat-option value="option"> {{universityYear }} </mat-option>
+          </mat-select>
         </mat-form-field></td>
-        <td><mat-form-field class="example-full-width">
-          <mat-label> Choose organization </mat-label>
-          <input matInput placeholder="Ex. SSST"> {{organization}}
+        <td><mat-form-field appearance="fill">
+          <mat-label>Choose organization</mat-label>
+          <mat-select>
+            <mat-option value="option"> {{organization}} </mat-option>
+          </mat-select>
         </mat-form-field></td>
       </tr></table>
 

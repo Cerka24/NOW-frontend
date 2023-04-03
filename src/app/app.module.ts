@@ -17,6 +17,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {OnboardingService} from "./services/onboarding.service";
 import {OnboardingResolver} from "./resolvers/onboarding.resolver";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {OnboardingResolver} from "./resolvers/onboarding.resolver";
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [
     OpportunityService,

@@ -13,7 +13,7 @@ import {Onboarding} from "../../models/onboarding.model";
 })
 export class OnboardingComponent implements OnInit, OnDestroy{
 
-  public universityYear?: number | any
+  public universityYear?: number | any 
   public organization: string = ''
   public shortBio: string = ''
   public certificates: string = ''
@@ -41,7 +41,7 @@ export class OnboardingComponent implements OnInit, OnDestroy{
     this.unsubscribe = this.activatedRoute.data.subscribe((data) => {
       console.log("DATA :: ", data)
       this.onboarding = data['onboarding'];
-      this.universityYear = data['onboarding']/*.universityYear*/
+      this.universityYear = data['onboarding'].universityYear;
       this.organization = data['onboarding']/*.organization*/
       this.shortBio = data['onboarding']/*.shortBio*/
       this.certificates = data['onboarding']/*.certificates*/
