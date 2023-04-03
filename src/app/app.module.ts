@@ -10,15 +10,35 @@ import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import { MatCardModule} from "@angular/material/card";
 import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
+
 import { OrgOpportunityComponent } from './org-opportunity/org-opportunity.component';
 import {MatGridListModule} from "@angular/material/grid-list";
-import {MatButtonModule} from "@angular/material/button";
 import { LogoutComponent } from './logout/logout.component';
 import { CreateOpportunityComponent } from './create-opportunity/create-opportunity.component';
-import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {ReactiveFormsModule} from "@angular/forms";
+
+import { OnboardingComponent } from './onboarding/onboarding.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {OnboardingService} from "./services/onboarding.service";
+import {OnboardingResolver} from "./resolvers/onboarding.resolver";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import { StudentListComponent } from './student-list/student-list.component';
+import {MatTableModule} from "@angular/material/table";
+import { MyWorkComponent } from './my-work/my-work.component';
+import {MyWorkService} from "./services/my-work.service";
+import {MyWorkResolver} from "./resolvers/my-work.resolver";
+import { LoginComponent } from './login/login.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { HeaderAuthComponent } from './header-auth/header-auth.component';
+import { RegisterComponent } from './register/register.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+
 
 @NgModule({
   declarations: [
@@ -28,6 +48,12 @@ import {ReactiveFormsModule} from "@angular/forms";
     OrgOpportunityComponent,
     LogoutComponent,
     CreateOpportunityComponent
+    OnboardingComponent
+    StudentListComponent,
+    MyWorkComponent,
+    RegisterComponent,
+    LoginComponent,
+    HeaderAuthComponent
   ],
   imports: [
     BrowserModule,
@@ -36,15 +62,26 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatCardModule,
     HttpClientModule,
     MatGridListModule,
-    MatButtonModule,
-    MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatTableModule,
+    MatSnackBarModule,
+    MatToolbarModule,
     ReactiveFormsModule
   ],
   providers: [
     OpportunityService,
-    OpportunityResolver
+    OpportunityResolver,
+    OnboardingService,
+    OnboardingResolver
+    MyWorkService,
+    MyWorkResolver
   ],
   bootstrap: [AppComponent]
 })

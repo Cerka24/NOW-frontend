@@ -37,4 +37,12 @@ export class HomeComponent {
     ]);
   }
 
+  navigateToOnboarding(): void {
+    const path = "onboarding"
+
+  navigateToMyWork(): void {
+    const path = "myWork"
+
+    this.router.navigate([path])
+  }
 }
