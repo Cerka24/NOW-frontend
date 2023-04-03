@@ -31,4 +31,10 @@ export class HomeComponent {
     this.router.navigate([path])
   }
 
+  navigateToOrgOpportunity() {
+    this.router.navigate([
+      'org-opportunity'
+    ]);
+  }
+
 }

@@ -18,6 +18,7 @@ import { CreateOpportunityComponent } from './create-opportunity/create-opportun
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatButtonModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ReactiveFormsModule
   ],
   providers: [
     OpportunityService,
