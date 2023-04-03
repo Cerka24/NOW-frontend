@@ -29,8 +29,11 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     AppComponent,
     HomeComponent,
     OpportunityComponent,
-    StudentListComponent
-    MyWorkComponent
+    StudentListComponent,
+    MyWorkComponent,
+    RegisterComponent,
+    LoginComponent,
+    HeaderAuthComponent
   ],
   imports: [
     BrowserModule,
@@ -38,14 +41,11 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     BrowserAnimationsModule,
     MatCardModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
     MatInputModule,
     MatButtonModule,
     MatSnackBarModule,
-    LoginComponent,
     MatToolbarModule,
-    HeaderAuthComponent,
-    RegisterComponent,
     FormsModule,
     ReactiveFormsModule
   ],
