@@ -1,0 +1,14 @@
+.landing-header{
+  display:flex;
+  padding: 40px;
+  border-bottom-style: solid;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.landing-header span{
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 5px;
+  margin: 5px;
+}

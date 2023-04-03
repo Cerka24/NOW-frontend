@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {OpportunityComponent} from "./opportunity/opportunity.component";
 import {OpportunityResolver} from "./resolvers/opportunity.resolver";
+import {LandingComponent} from "./landing/landing.component";
 import {OrgOpportunityComponent} from "./org-opportunity/org-opportunity.component";
 import {CreateOpportunityComponent} from "./create-opportunity/create-opportunity.component";
 import {OnboardingComponent} from "./onboarding/onboarding.component";
@@ -15,6 +16,10 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
+  {
+    path: "landing",
+    component: LandingComponent
+  },
   {
     path: "",
     component: HomeComponent

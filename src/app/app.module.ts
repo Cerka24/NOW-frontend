@@ -10,7 +10,8 @@ import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import { MatCardModule} from "@angular/material/card";
 import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
-
+import { LandingComponent } from './landing/landing.component';
+import {MatLegacyButtonModule} from "@angular/material/legacy-button";
 import { OrgOpportunityComponent } from './org-opportunity/org-opportunity.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { LogoutComponent } from './logout/logout.component';
@@ -44,6 +45,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     AppComponent,
     HomeComponent,
     OpportunityComponent,
+    LandingComponent,
     OrgOpportunityComponent,
     LogoutComponent,
     CreateOpportunityComponent,
@@ -60,6 +62,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     BrowserAnimationsModule,
     MatCardModule,
     HttpClientModule,
+    MatLegacyButtonModule,
     MatGridListModule,
     MatDatepickerModule,
     MatNativeDateModule,
