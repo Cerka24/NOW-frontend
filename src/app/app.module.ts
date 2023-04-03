@@ -10,19 +10,25 @@ import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import { MatCardModule} from "@angular/material/card";
 import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    OpportunityComponent
+    OpportunityComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [
     OpportunityService,
