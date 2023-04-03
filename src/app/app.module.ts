@@ -10,11 +10,12 @@ import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import { MatCardModule} from "@angular/material/card";
 import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
-import { MyWorkComponent } from './my-work/my-work.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
+import { MyWorkComponent } from './my-work/my-work.component';
 import {MyWorkService} from "./services/my-work.service";
 import {MyWorkResolver} from "./resolvers/my-work.resolver";
-import {MatButtonModule} from "@angular/material/button";
 import { LoginComponent } from './login/login.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatToolbarModule} from "@angular/material/toolbar";
@@ -28,6 +29,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     AppComponent,
     HomeComponent,
     OpportunityComponent,
+    StudentListComponent
     MyWorkComponent
   ],
   imports: [
@@ -36,8 +38,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     BrowserAnimationsModule,
     MatCardModule,
     HttpClientModule,
+    MatTableModule
     MatInputModule,
-    MatTableModule,
     MatButtonModule,
     MatSnackBarModule,
     LoginComponent,
