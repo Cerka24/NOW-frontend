@@ -1,33 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {MyWork} from "../models/my-work.model";
-import {Opportunity} from "../models/opportunity.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyWorkService {
 
- /* WORKS: Array<MyWork> = [
-    {
-      opportunity: 'Design',
-      organization: 'SSST',
-      date_created: '02.04.2023',
-      pts: 50,
-      status: 'APPROVED'
-    },
-    {
-      opportunity: 'Design2',
-      organization: 'SSST',
-      date_created: '01.04.2023',
-      pts: 20,
-      status: 'REJECTED'
-    }
-
-    ]*/
   constructor() {}
 
-  getWork(id: number): Observable<MyWork[]> {
+  getWork(): Observable<MyWork[]> {
     return of([
       {
         opportunity: 'Angular Developer (Vision)',
@@ -91,16 +73,12 @@ export class MyWorkService {
   createWork(work: MyWork): Observable<MyWork> {
     console.log('Reached workService with intention to create work:', work);
     return of({
-      opportunity: 'Design5',
-      organization: 'SSST',
-      date_created: '2023',
-      pts: 58,
-      status: 'APPROVED NOT'
+      opportunity: 'QA Manual Tester (Junior)',
+      organization: 'QSD',
+      date_created: '15.03.2023',
+      pts: 60,
+      status: 'REJECTED'
     });
   }
 
-
- /* getById(id: number): Observable<MyWork>{
-    return of(this.WORKS[id-1])
-  }*/
 }

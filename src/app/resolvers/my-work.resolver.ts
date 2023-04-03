@@ -19,6 +19,6 @@ export class MyWorkResolver implements Resolve<MyWork[]> {
       if(!id) {
       // handle error
     }
-    return this.myWorkService.getWork(+id!)
+    return this.myWorkService.getWork()
   }
 }
