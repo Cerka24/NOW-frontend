@@ -13,6 +13,16 @@ import { OpportunityComponent } from './opportunity/opportunity.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
+import { MyWorkComponent } from './my-work/my-work.component';
+import {MyWorkService} from "./services/my-work.service";
+import {MyWorkResolver} from "./resolvers/my-work.resolver";
+import { LoginComponent } from './login/login.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { HeaderAuthComponent } from './header-auth/header-auth.component';
+import { RegisterComponent } from './register/register.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -20,6 +30,7 @@ import {MatTableModule} from "@angular/material/table";
     HomeComponent,
     OpportunityComponent,
     StudentListComponent
+    MyWorkComponent
   ],
   imports: [
     BrowserModule,
@@ -27,12 +38,22 @@ import {MatTableModule} from "@angular/material/table";
     BrowserAnimationsModule,
     MatCardModule,
     HttpClientModule,
-    MatButtonModule,
     MatTableModule
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    LoginComponent,
+    MatToolbarModule,
+    HeaderAuthComponent,
+    RegisterComponent,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     OpportunityService,
-    OpportunityResolver
+    OpportunityResolver,
+    MyWorkService,
+    MyWorkResolver
   ],
   bootstrap: [AppComponent]
 })

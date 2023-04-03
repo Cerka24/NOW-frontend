@@ -30,5 +30,8 @@ export class HomeComponent {
     const path = "opportunity/" + id
     this.router.navigate([path])
   }
-
+  navigateToMyWork(): void {
+    const path = "myWork"
+    this.router.navigate([path])
+  }
 }
