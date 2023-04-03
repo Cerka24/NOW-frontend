@@ -39,10 +39,13 @@ export class HomeComponent {
 
   navigateToOnboarding(): void {
     const path = "onboarding"
+    this.router.navigate([path])
+
+  }
 
   navigateToMyWork(): void {
     const path = "myWork"
-
     this.router.navigate([path])
   }
+
 }

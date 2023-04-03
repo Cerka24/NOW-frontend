@@ -17,7 +17,6 @@ import { LogoutComponent } from './logout/logout.component';
 import { CreateOpportunityComponent } from './create-opportunity/create-opportunity.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
-import {ReactiveFormsModule} from "@angular/forms";
 
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import {MatInputModule} from "@angular/material/input";
@@ -47,8 +46,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     OpportunityComponent,
     OrgOpportunityComponent,
     LogoutComponent,
-    CreateOpportunityComponent
-    OnboardingComponent
+    CreateOpportunityComponent,
+    OnboardingComponent,
     StudentListComponent,
     MyWorkComponent,
     RegisterComponent,
@@ -79,7 +78,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     OpportunityService,
     OpportunityResolver,
     OnboardingService,
-    OnboardingResolver
+    OnboardingResolver,
     MyWorkService,
     MyWorkResolver
   ],
