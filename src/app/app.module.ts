@@ -19,6 +19,17 @@ import {OnboardingService} from "./services/onboarding.service";
 import {OnboardingResolver} from "./resolvers/onboarding.resolver";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import { StudentListComponent } from './student-list/student-list.component';
+import {MatTableModule} from "@angular/material/table";
+import { MyWorkComponent } from './my-work/my-work.component';
+import {MyWorkService} from "./services/my-work.service";
+import {MyWorkResolver} from "./resolvers/my-work.resolver";
+import { LoginComponent } from './login/login.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { HeaderAuthComponent } from './header-auth/header-auth.component';
+import { RegisterComponent } from './register/register.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+
 
 @NgModule({
   declarations: [
@@ -26,6 +37,11 @@ import {MatSelectModule} from "@angular/material/select";
     HomeComponent,
     OpportunityComponent,
     OnboardingComponent
+    StudentListComponent,
+    MyWorkComponent,
+    RegisterComponent,
+    LoginComponent,
+    HeaderAuthComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +55,9 @@ import {MatSelectModule} from "@angular/material/select";
     FormsModule,
     MatOptionModule,
     MatSelectModule,
+    MatTableModule,
+    MatSnackBarModule,
+    MatToolbarModule,
     ReactiveFormsModule
   ],
   providers: [
@@ -46,6 +65,8 @@ import {MatSelectModule} from "@angular/material/select";
     OpportunityResolver,
     OnboardingService,
     OnboardingResolver
+    MyWorkService,
+    MyWorkResolver
   ],
   bootstrap: [AppComponent]
 })
