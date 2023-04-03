@@ -17,11 +17,19 @@ import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
   {
-    path: "landing",
+    path: "",
     component: LandingComponent
   },
   {
-    path: "",
+    path: "login",
+    component: LoginComponent,
+  },
+  {
+    path: "register",
+    component: RegisterComponent,
+  },
+  {
+    path: "home",
     component: HomeComponent
   },
   {
@@ -66,14 +74,6 @@ const routes: Routes = [
     resolve:{
       'works': MyWorkResolver
     }
-  },
-  {
-    path: "login",
-    component: LoginComponent,
-  },
-  {
-    path: "register",
-    component: RegisterComponent,
   }
 ];
 
