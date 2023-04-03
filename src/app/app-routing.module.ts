@@ -4,6 +4,8 @@ import {HomeComponent} from "./home/home.component";
 import {OpportunityComponent} from "./opportunity/opportunity.component";
 import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import {LandingComponent} from "./landing/landing.component";
+import {OrgOpportunityComponent} from "./org-opportunity/org-opportunity.component";
+import {CreateOpportunityComponent} from "./create-opportunity/create-opportunity.component";
 import {OnboardingComponent} from "./onboarding/onboarding.component";
 import {OnboardingResolver} from "./resolvers/onboarding.resolver";
 import {StudentListComponent} from "./student-list/student-list.component";
@@ -28,6 +30,21 @@ const routes: Routes = [
     resolve:{
       'opportunity': OpportunityResolver
     }
+  },
+  {
+    path: ":org-opportunityId",
+    component: OrgOpportunityComponent,
+    resolve:{
+      'opportunity': OpportunityResolver
+    }
+  },
+  {
+    path:"org-opportunityId/createOpportunity",
+    component:CreateOpportunityComponent
+  },
+  {
+    path:"org-opportunityId",
+    component:CreateOpportunityComponent
   },
   {
     path: "onboarding",
