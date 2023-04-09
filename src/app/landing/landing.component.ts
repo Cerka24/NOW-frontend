@@ -7,7 +7,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent {
-  constructor(private router:Router, private activatedRoute: ActivatedRoute ) {
+  constructor(private router:Router) {
   }
 
   navigateToLogin(): void {
@@ -17,6 +17,11 @@ export class LandingComponent {
 
   navigateToRegister(): void {
     const path = "register"
+    this.router.navigate([path])
+  }
+
+  navigateToOrgRegister(): void {
+    const path = "org/register"
     this.router.navigate([path])
   }
 }

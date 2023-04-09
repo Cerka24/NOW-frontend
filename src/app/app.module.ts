@@ -12,6 +12,9 @@ import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
 import { LandingComponent } from './landing/landing.component';
 import {MatLegacyButtonModule} from "@angular/material/legacy-button";
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { OrgRegisterComponent } from './org-register/org-register.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import {MatLegacyButtonModule} from "@angular/material/legacy-button";
     AppComponent,
     HomeComponent,
     OpportunityComponent,
-    LandingComponent
+    LandingComponent,
+    LoginComponent,
+    RegisterComponent,
+    OrgRegisterComponent
   ],
   imports: [
     BrowserModule,

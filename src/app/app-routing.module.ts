@@ -4,6 +4,9 @@ import {HomeComponent} from "./home/home.component";
 import {OpportunityComponent} from "./opportunity/opportunity.component";
 import {OpportunityResolver} from "./resolvers/opportunity.resolver";
 import {LandingComponent} from "./landing/landing.component";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
+import {OrgRegisterComponent} from "./org-register/org-register.component";
 
 const routes: Routes = [
   {
@@ -13,6 +16,20 @@ const routes: Routes = [
   {
     path: "",
     component: HomeComponent
+  },
+
+  {
+    path: "login",
+    component: LoginComponent
+  },
+
+  {
+    path: "org/register",
+    component: OrgRegisterComponent
+  },
+  {
+    path: "register",
+    component: RegisterComponent
   },
   {
     path: "opportunity/:id",
