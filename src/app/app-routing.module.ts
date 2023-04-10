@@ -14,19 +14,19 @@ const routes: Routes = [
     component: LandingComponent
   },
   {
+    path: "login",
+    component: LoginComponent,
+  },
+  {
+    path: "register",
+    component: RegisterComponent,
+  },
+  {
+
     path: "home",
     component: HomeComponent
   },
 
-  {
-    path: "login",
-    component: LoginComponent
-  },
-
-  {
-    path: "org/register",
-    component: OrgRegisterComponent
-  },
   {
     path: "register",
     component: RegisterComponent

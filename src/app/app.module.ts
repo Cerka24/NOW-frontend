@@ -11,7 +11,26 @@ import { MatCardModule} from "@angular/material/card";
 import { HttpClientModule} from "@angular/common/http";
 import { OpportunityComponent } from './opportunity/opportunity.component';
 import { LandingComponent } from './landing/landing.component';
-import {MatLegacyButtonModule} from "@angular/material/legacy-button";
+import { OrgOpportunityComponent } from './org-opportunity/org-opportunity.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import { LogoutComponent } from './logout/logout.component';
+import { CreateOpportunityComponent } from './create-opportunity/create-opportunity.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import { OnboardingComponent } from './onboarding/onboarding.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {OnboardingService} from "./services/onboarding.service";
+import {OnboardingResolver} from "./resolvers/onboarding.resolver";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import { StudentListComponent } from './student-list/student-list.component';
+import {MatTableModule} from "@angular/material/table";
+import { MyWorkComponent } from './my-work/my-work.component';
+import {MyWorkService} from "./services/my-work.service";
+import {MyWorkResolver} from "./resolvers/my-work.resolver";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OrgRegisterComponent } from './org-register/org-register.component';
@@ -33,7 +52,19 @@ import { OrgRegisterComponent } from './org-register/org-register.component';
     BrowserAnimationsModule,
     MatCardModule,
     HttpClientModule,
-    MatLegacyButtonModule
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatTableModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    ReactiveFormsModule
   ],
   providers: [
     OpportunityService,
