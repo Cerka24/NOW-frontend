@@ -1,0 +1,32 @@
+<div class="form">
+  <div class="container-form">
+    <span id="title">Create opportunity</span>
+    <div>
+      <form [formGroup]="registerForm">
+        <div class="container-inputs">
+          <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input type="text" [formControlName]="'title'" matInput placeholder="Enter title">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Date</mat-label>
+            <input type="date" [formControlName]="'date'" matInput placeholder="Enter date">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input type="text" [formControlName]="'description'" matInput placeholder="Enter description">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Requirements</mat-label>
+            <input type="text" [formControlName]="'requirements'" matInput placeholder="Enter requirements">
+          </mat-form-field>
+
+          <button class="primary-button" mat-flat-button color="primary" type="submit" (click)="create()">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

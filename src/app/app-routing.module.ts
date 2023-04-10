@@ -10,11 +10,11 @@ import {OrgRegisterComponent} from "./org-register/org-register.component";
 
 const routes: Routes = [
   {
-    path: "landing",
+    path: "",
     component: LandingComponent
   },
   {
-    path: "",
+    path: "home",
     component: HomeComponent
   },
 

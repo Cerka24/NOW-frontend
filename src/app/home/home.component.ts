@@ -31,4 +31,21 @@ export class HomeComponent {
     this.router.navigate([path])
   }
 
+  navigateToOrgOpportunity() {
+    this.router.navigate([
+      'org-opportunity'
+    ]);
+  }
+
+  navigateToOnboarding(): void {
+    const path = "onboarding"
+    this.router.navigate([path])
+
+  }
+
+  navigateToMyWork(): void {
+    const path = "myWork"
+    this.router.navigate([path])
+  }
+
 }
