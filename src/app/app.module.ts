@@ -17,7 +17,6 @@ import { LogoutComponent } from './logout/logout.component';
 import { CreateOpportunityComponent } from './create-opportunity/create-opportunity.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
-
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
@@ -33,10 +32,8 @@ import { MyWorkComponent } from './my-work/my-work.component';
 import {MyWorkService} from "./services/my-work.service";
 import {MyWorkResolver} from "./resolvers/my-work.resolver";
 import { LoginComponent } from './login/login.component';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import { HeaderAuthComponent } from './header-auth/header-auth.component';
 import { RegisterComponent } from './register/register.component';
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { OrgRegisterComponent } from './org-register/org-register.component';
 
 
 @NgModule({
@@ -45,15 +42,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     HomeComponent,
     OpportunityComponent,
     LandingComponent,
-    OrgOpportunityComponent,
-    LogoutComponent,
-    CreateOpportunityComponent,
-    OnboardingComponent,
-    StudentListComponent,
-    MyWorkComponent,
-    RegisterComponent,
     LoginComponent,
-    HeaderAuthComponent
+    RegisterComponent,
+    OrgRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -77,11 +68,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
   ],
   providers: [
     OpportunityService,
-    OpportunityResolver,
-    OnboardingService,
-    OnboardingResolver,
-    MyWorkService,
-    MyWorkResolver
+    OpportunityResolver
   ],
   bootstrap: [AppComponent]
 })
