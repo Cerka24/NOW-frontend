@@ -34,6 +34,9 @@ import {MyWorkResolver} from "./resolvers/my-work.resolver";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OrgRegisterComponent } from './org-register/org-register.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {HeaderAuthComponent} from "./header-auth/header-auth.component";
 
 
 @NgModule({
@@ -44,7 +47,14 @@ import { OrgRegisterComponent } from './org-register/org-register.component';
     LandingComponent,
     LoginComponent,
     RegisterComponent,
-    OrgRegisterComponent
+    OrgRegisterComponent,
+    OrgOpportunityComponent,
+    LogoutComponent,
+    CreateOpportunityComponent,
+    OnboardingComponent,
+    StudentListComponent,
+    MyWorkComponent,
+    HeaderAuthComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +78,11 @@ import { OrgRegisterComponent } from './org-register/org-register.component';
   ],
   providers: [
     OpportunityService,
-    OpportunityResolver
+    OpportunityResolver,
+    OnboardingService,
+    OnboardingResolver,
+    MyWorkService,
+    MyWorkResolver
   ],
   bootstrap: [AppComponent]
 })
