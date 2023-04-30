@@ -6,21 +6,19 @@
         <td><mat-form-field appearance="fill">
           <mat-label>University year</mat-label>
           <mat-select [formControlName]="'universityYear'">
-            <mat-option  value="option"> 1 </mat-option>
-            <mat-option  value="option"> 2 </mat-option>
-            <mat-option  value="option"> 3 </mat-option>
-            <mat-option  value="option"> 4 </mat-option>
-            <mat-option  value="option"> 5 </mat-option>
-            <mat-option  value="option"> 6 </mat-option>
+            <mat-option *ngFor="let year of years"
+                         [value]="year.universityYear">
+              {{year.universityYear}}
+            </mat-option>
           </mat-select>
         </mat-form-field></td>
         <td><mat-form-field appearance="fill">
           <mat-label>Choose organization</mat-label>
           <mat-select [formControlName]="'organization'">
-            <mat-option value="option"> SSST </mat-option>
-            <mat-option value="option"> IUS </mat-option>
-            <mat-option value="option"> IBU </mat-option>
-            <mat-option value="option"> MOP </mat-option>
+            <mat-option *ngFor="let org of organizations"
+                         [value]="org.organization">
+              {{org.organization}}
+            </mat-option>
           </mat-select>
         </mat-form-field></td>
       </tr></table>

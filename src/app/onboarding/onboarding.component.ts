@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Onboarding} from "../models/onboarding.model";
+import {OnboardingService} from "../services/onboarding.service";
 /**
  * @title Inputs in a form
  */
@@ -11,12 +13,13 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./onboarding.component.css']
 })
 export class OnboardingComponent implements OnInit {
-
+  public years: Array<Onboarding> = [];
+  public organizations: Array<Onboarding> = [];
   public onboardingForm!: FormGroup
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private onboardingService: OnboardingService, private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-    this.onboardingForm = this.formBuilder.group({
+      this.onboardingForm = this.formBuilder.group({
       'universityYear': ['', [Validators.required, Validators.email]],
       'organization': ['', [Validators.required]],
       'shortBio': ['', [Validators.required]],
@@ -25,14 +28,13 @@ export class OnboardingComponent implements OnInit {
       'gpa': ['', [Validators.required]],
       'uploadImage': ['', [Validators.required]]
     });
+      
+    this.onboardingService.getAll().subscribe((data) => this.years = data);
+    this.onboardingService.getAll().subscribe((data) => this.organizations = data);
+    console.log(this.onboardingForm.value);
   }
-
   submitForm() {
     console.log(this.onboardingForm.value);
-   /* this.router.navigate([
-      ''
-    ])*/
-
   }
   navigateToHomepage(): void {
     const path = ""

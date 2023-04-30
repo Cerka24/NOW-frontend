@@ -7,6 +7,8 @@ import {LandingComponent} from "./landing/landing.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {OrgRegisterComponent} from "./org-register/org-register.component";
+import {OnboardingResolver} from "./resolvers/onboarding.resolver";
+import {OnboardingComponent} from "./onboarding/onboarding.component";
 
 const routes: Routes = [
   {
@@ -30,6 +32,13 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterComponent
+  },
+  {
+    path: "onboarding",
+    component: OnboardingComponent,
+    resolve:{
+      'onboarding': OnboardingResolver
+    }
   },
   {
     path: "opportunity/:id",

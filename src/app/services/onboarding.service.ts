@@ -11,7 +11,7 @@ export class OnboardingService {
   ONBOARDING: Array<Onboarding> = [
     {
       id: 1,
-      universityYear: 3,
+      universityYear: 1,
       organization: "SSST",
       shortBio: "1 Highly skilled in software development.",
       certificates: "none",
@@ -21,8 +21,8 @@ export class OnboardingService {
     },
     {
       id: 2,
-      universityYear: 3,
-      organization: "SSST",
+      universityYear: 2,
+      organization: "IUS",
       shortBio: "2 Highly skilled in software development.",
       certificates: "none",
       linkedinUrl: "https://ba.linkedin.com/in/amna-mandzo-aba1811b7",
@@ -32,7 +32,7 @@ export class OnboardingService {
     {
       id: 3,
       universityYear: 3,
-      organization: "SSST",
+      organization: "IBU",
       shortBio: "3 Highly skilled in software development.",
       certificates: "none",
       linkedinUrl: "https://ba.linkedin.com/in/lejla-omerovic",
@@ -41,8 +41,8 @@ export class OnboardingService {
     },
     {
       id: 4,
-      universityYear: 3,
-      organization: "SSST",
+      universityYear: 4,
+      organization: "MOP",
       shortBio: "4 Highly skilled in software development.",
       certificates: "none",
       linkedinUrl: "https://ba.linkedin.com/in/faruk-ceri%C4%87-7b4526202",
@@ -51,7 +51,6 @@ export class OnboardingService {
 
     }
   ]
-
 
   constructor(private http: HttpClient) { }
 
