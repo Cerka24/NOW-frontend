@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,21 @@ export class LoginComponent {
     }
 
     this.authService.login(this.loginForm.value).subscribe((data: any) => {
-      console.log(data)
-    });
+      console.log("RESPONSE :: ",data)
+      //TODO Save this data to use across app
+
+      this.router.navigate(["/home"])
+
+    }, error => {
+      if(error.status == 401){
+        this._snackBar.open(`Invalid credentials`, '', {
+          duration: 1000,
+        })
+      } else {
+        this._snackBar.open(`Invalid login - ${error.message}`, '', {
+          duration: 1000
+        })
+      }
+    })
   }
 }
