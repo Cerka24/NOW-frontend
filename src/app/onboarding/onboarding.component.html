@@ -1,6 +1,6 @@
 <body>
   <div id="form">
-    <form [formGroup]="onboardingForm" (submit)="submitForm()" class="example-form">
+    <form [formGroup]="onboardingForm" (ngSubmit)="submitForm()" class="example-form">
       <h2 id="title">Hello! Please tell us a little about <br> yourself.</h2>
       <table class="example-full-width" cellspacing="0"><tr>
         <td><mat-form-field appearance="fill">
@@ -26,33 +26,33 @@
       <p>
         <mat-form-field class="example-full-width">
           <mat-label> Short bio </mat-label>
-          <textarea type="text" [formControlName]="'shortBio'" matInput placeholder=""></textarea>
+          <textarea type="text" matInput [formControlName]="'shortBio'" placeholder=""></textarea>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field class="example-full-width">
           <mat-label> List of certificates </mat-label>
-          <textarea type="text" [formControlName]="'certificates'" matInput placeholder=""></textarea>
+          <textarea type="text" matInput [formControlName]="'certificates'" placeholder=""></textarea>
         </mat-form-field>
       </p>
 
       <table class="example-full-width" cellspacing="0">
         <tr><td><mat-form-field class="example-full-width">
           <mat-label> Linkedin URL </mat-label>
-          <input type="text" [formControlName]="'linkedinUrl'" matInput placeholder="">
+          <input type="text" matInput [formControlName]="'linkedinUrl'" placeholder="">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width">
           <mat-label> GPA </mat-label>
-          <input type="number" [formControlName]="'gpa'" matInput placeholder="Ex. 4.0" value="">
+          <input type="number" matInput [formControlName]="'gpa'" placeholder="Ex. 4.0" value="">
         </mat-form-field></td>
         </tr>
         <td><mat-form-field id="image_upload">
           <mat-label> Upload image </mat-label>
-          <textarea type="text" [formControlName]="'uploadImage'" matInput placeholder=""></textarea>
+          <textarea type="text" matInput [formControlName]="'uploadImage'" placeholder=""></textarea>
         </mat-form-field></td>
       </table>
       <div class="example-button-row" id="example-flex-container">
-        <button type="submit" (click)="navigateToHomepage()" mat-stroked-button>Submit</button>
+        <button type="submit" mat-stroked-button>Submit</button>
         <button type="button" (click)="navigateToHomepage()" mat-stroked-button>Close</button>
       </div>
     </form>

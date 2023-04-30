@@ -13,14 +13,16 @@ import {OnboardingService} from "../services/onboarding.service";
   styleUrls: ['./onboarding.component.css']
 })
 export class OnboardingComponent implements OnInit {
+  public onboardingForm!: FormGroup
   public years: Array<Onboarding> = [];
   public organizations: Array<Onboarding> = [];
-  public onboardingForm!: FormGroup
-  constructor(private onboardingService: OnboardingService, private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private onboardingService: OnboardingService) {}
 
   ngOnInit(): void {
       this.onboardingForm = this.formBuilder.group({
-      'universityYear': ['', [Validators.required, Validators.email]],
+      'universityYear': ['', [Validators.required]],
       'organization': ['', [Validators.required]],
       'shortBio': ['', [Validators.required]],
       'certificates': ['', [Validators.required]],
@@ -28,14 +30,16 @@ export class OnboardingComponent implements OnInit {
       'gpa': ['', [Validators.required]],
       'uploadImage': ['', [Validators.required]]
     });
-      
+
     this.onboardingService.getAll().subscribe((data) => this.years = data);
     this.onboardingService.getAll().subscribe((data) => this.organizations = data);
-    console.log(this.onboardingForm.value);
   }
   submitForm() {
-    console.log(this.onboardingForm.value);
+    console.log('Form Submitted', this.onboardingForm.value)
+    const path = ""
+    this.router.navigate([path])
   }
+
   navigateToHomepage(): void {
     const path = ""
     this.router.navigate([path])
