@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class RegisterComponent {
 
   public registerForm!: FormGroup
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private _snackBar: MatSnackBar) {}
+  constructor(private router: Router, private formBuilder: FormBuilder, private authService: AuthService, private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -32,7 +33,17 @@ export class RegisterComponent {
 
     this.authService.register(this.registerForm.value).subscribe((data: any) => {
       console.log(data)
-    });
+      //TODO: Save this data to use across app
+      this._snackBar.open("Account created, please log in", '', {
+        duration: 1000
+      })
+      this.router.navigate(["/login"])
+
+    }, error => {
+      this._snackBar.open("Unable to register account", '', {
+        duration: 1000
+      })
+    })
   }
 
 
