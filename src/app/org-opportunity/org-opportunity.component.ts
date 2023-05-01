@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Opportunity} from "../models/opportunity.model";
 import {Subscription} from "rxjs";
 import {OpportunityService} from "../services/opportunity.service";
+import {CreateOpportunityService} from "../services/create-opportunity.service";
 
 @Component({
   selector: 'app-org-opportunity',
@@ -24,9 +25,25 @@ export class OrgOpportunityComponent implements OnInit, OnDestroy{
     this.unsubscribe!.unsubscribe()
   }
 
-  navigateToOrgOpportunity() {
+  navigateToCreateOpportunity() {
     this.router.navigate([
-      'org-opportunityId/createOpportunity'
+      'orgOpportunity/createOpportunity'
     ]);
+  }
+  navigateToStudentList() {
+    this.router.navigate([
+      'orgOpportunity/studentList'
+    ])
+  }
+  navigateToOpportunity(id: number){
+    this.router.navigate([
+      "opportunity/" + id
+    ])
+  }
+
+  navigateToLandingPage() {
+    this.router.navigate([
+      ''
+    ])
   }
 }

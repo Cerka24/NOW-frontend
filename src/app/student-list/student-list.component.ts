@@ -27,9 +27,9 @@ export class StudentListComponent implements OnInit, OnDestroy{
     this.unsubscribe!.unsubscribe()
   }
 
-  navigateToHomepage() {
+  navigateToOpportunities() {
     this.router.navigate([
-      'studentList'
+      'orgOpportunity'
     ]);
   }
 }

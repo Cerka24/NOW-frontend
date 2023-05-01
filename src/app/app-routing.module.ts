@@ -9,6 +9,10 @@ import {RegisterComponent} from "./register/register.component";
 import {OrgRegisterComponent} from "./org-register/org-register.component";
 import {OnboardingResolver} from "./resolvers/onboarding.resolver";
 import {OnboardingComponent} from "./onboarding/onboarding.component";
+import {OrgOpportunityComponent} from "./org-opportunity/org-opportunity.component";
+import {CreateOpportunityComponent} from "./create-opportunity/create-opportunity.component";
+import {StudentListComponent} from "./student-list/student-list.component";
+import {StudentListResolver} from "./resolvers/student-list.resolver";
 
 const routes: Routes = [
   {
@@ -34,10 +38,27 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+
     path: "onboarding",
     component: OnboardingComponent,
     resolve:{
       'onboarding': OnboardingResolver
+     }
+  },
+  {
+    path: "orgOpportunity",
+    component: OrgOpportunityComponent
+  },
+  {
+    path: "orgOpportunity/createOpportunity",
+    component: CreateOpportunityComponent
+  },
+  {
+    path: 'orgOpportunity/studentList',
+    component: StudentListComponent,
+    resolve: {
+      'studentLists': StudentListResolver
+
     }
   },
   {
