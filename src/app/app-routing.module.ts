@@ -14,7 +14,6 @@ import {StudentListComponent} from "./student-list/student-list.component";
 import {MyWorkResolver} from "./resolvers/my-work.resolver";
 import {OrgOpportunityComponent} from "./org-opportunity/org-opportunity.component";
 import {CreateOpportunityComponent} from "./create-opportunity/create-opportunity.component";
-import {StudentListComponent} from "./student-list/student-list.component";
 import {StudentListResolver} from "./resolvers/student-list.resolver";
 
 
@@ -42,10 +41,6 @@ const routes: Routes = [
     resolve:{
       'works' : MyWorkResolver
     }
-  },
-  {
-    path: "register",
-    component: RegisterComponent,
   },
   {
 

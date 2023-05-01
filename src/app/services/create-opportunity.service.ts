@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {createOpportunity} from "../models/create-opportunity.model";
 import {Observable, of} from "rxjs";
-import {environment} from "../environments/environments";
 import {Opportunity} from "../models/opportunity.model";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
