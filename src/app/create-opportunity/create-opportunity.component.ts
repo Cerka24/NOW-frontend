@@ -1,13 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Router, Routes} from "@angular/router";
-import {Subscription} from "rxjs";
-import {CreateOpportunityService} from "../services/create-opportunity.service";
-import {createOpportunity} from "../models/create-opportunity.model";
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 import {FormBuilder, Validators} from "@angular/forms";
-import {MatSnackBar} from "@angular/material/snack-bar";
-
-class AuthService {
-}
+import {Opportunity} from "../models/opportunity.model";
+import {CreateOpportunityService} from "../services/create-opportunity.service";
 
 @Component({
   selector: 'app-create-opportunity',
@@ -16,13 +11,8 @@ class AuthService {
 })
 export class CreateOpportunityComponent implements OnInit{
 
-  private unsubscribe: Subscription | undefined;
-  private title: string = '';
-  private description: string = '';
-  private date: string = '';
-  private requirements: string = '';
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {}
+  constructor(private router: Router, private formBuilder: FormBuilder, private createOpportunityService: CreateOpportunityService) {}
 
   registerForm: any;
   ngOnInit(): void {
@@ -34,9 +24,15 @@ export class CreateOpportunityComponent implements OnInit{
     });
   }
 
+  createOpportunity(opportunity: Opportunity): void {
+    this.createOpportunityService.createOpportunity(opportunity).subscribe(() => {
+      this.create();
+    })
+  }
+
   public create() {
     return this.router.navigate([
-      'org-opportunityId'
+      'orgOpportunity'
     ])
   }
 }
