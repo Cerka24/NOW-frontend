@@ -9,10 +9,14 @@ import {RegisterComponent} from "./register/register.component";
 import {OrgRegisterComponent} from "./org-register/org-register.component";
 import {OnboardingResolver} from "./resolvers/onboarding.resolver";
 import {OnboardingComponent} from "./onboarding/onboarding.component";
+import {MyWorkComponent} from "./my-work/my-work.component";
+import {StudentListComponent} from "./student-list/student-list.component";
+import {MyWorkResolver} from "./resolvers/my-work.resolver";
 import {OrgOpportunityComponent} from "./org-opportunity/org-opportunity.component";
 import {CreateOpportunityComponent} from "./create-opportunity/create-opportunity.component";
 import {StudentListComponent} from "./student-list/student-list.component";
 import {StudentListResolver} from "./resolvers/student-list.resolver";
+
 
 const routes: Routes = [
   {
@@ -30,12 +34,18 @@ const routes: Routes = [
   {
 
     path: "home",
-    component: HomeComponent
+    component: HomeComponent,
   },
-
+  {
+    path: "my-works",
+    component: MyWorkComponent,
+    resolve:{
+      'works' : MyWorkResolver
+    }
+  },
   {
     path: "register",
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
 
