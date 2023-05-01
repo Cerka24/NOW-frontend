@@ -15,10 +15,7 @@ export class MyWorkResolver implements Resolve<MyWork[]> {
   constructor(private myWorkService: MyWorkService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<MyWork[]> {
-      const id = route.paramMap.get('id');
-      if(!id) {
-      // handle error
-    }
+     /* const id = route.paramMap.get('id');*/
     return this.myWorkService.getWork()
   }
 }

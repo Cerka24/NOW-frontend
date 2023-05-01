@@ -44,7 +44,7 @@ export class HomeComponent {
   }
 
   navigateToMyWork(): void {
-    const path = "myWork"
+    const path = "my-works"
     this.router.navigate([path])
   }
 
