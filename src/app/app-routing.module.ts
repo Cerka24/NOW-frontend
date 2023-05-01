@@ -7,6 +7,10 @@ import {LandingComponent} from "./landing/landing.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {OrgRegisterComponent} from "./org-register/org-register.component";
+import {OrgOpportunityComponent} from "./org-opportunity/org-opportunity.component";
+import {CreateOpportunityComponent} from "./create-opportunity/create-opportunity.component";
+import {StudentListComponent} from "./student-list/student-list.component";
+import {StudentListResolver} from "./resolvers/student-list.resolver";
 
 const routes: Routes = [
   {
@@ -30,6 +34,21 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterComponent
+  },
+  {
+    path: "orgOpportunity",
+    component: OrgOpportunityComponent
+  },
+  {
+    path: "orgOpportunity/createOpportunity",
+    component: CreateOpportunityComponent
+  },
+  {
+    path: 'orgOpportunity/studentList',
+    component: StudentListComponent,
+    resolve: {
+      'studentLists': StudentListResolver
+    }
   },
   {
     path: "opportunity/:id",
