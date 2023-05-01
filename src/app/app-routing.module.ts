@@ -7,6 +7,8 @@ import {LandingComponent} from "./landing/landing.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {OrgRegisterComponent} from "./org-register/org-register.component";
+import {OnboardingResolver} from "./resolvers/onboarding.resolver";
+import {OnboardingComponent} from "./onboarding/onboarding.component";
 import {MyWorkComponent} from "./my-work/my-work.component";
 import {StudentListComponent} from "./student-list/student-list.component";
 import {MyWorkResolver} from "./resolvers/my-work.resolver";
@@ -46,6 +48,14 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
+
+    path: "onboarding",
+    component: OnboardingComponent,
+    resolve:{
+      'onboarding': OnboardingResolver
+     }
+  },
+  {
     path: "orgOpportunity",
     component: OrgOpportunityComponent
   },
@@ -58,6 +68,7 @@ const routes: Routes = [
     component: StudentListComponent,
     resolve: {
       'studentLists': StudentListResolver
+
     }
   },
   {
