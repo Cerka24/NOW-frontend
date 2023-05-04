@@ -31,9 +31,15 @@ export class OnboardingComponent implements OnInit {
       'uploadImage': ['', [Validators.required]]
     });
 
-    this.onboardingService.getAll().subscribe((data) => this.years = data);
-    this.onboardingService.getAll().subscribe((data) => this.organizations = data);
+
+    this.onboardingService.getAll().subscribe((data) => {
+      console.log(data);
+      this.years = data;
+      this.organizations = data;
+
+    });
   }
+
   submitForm() {
     console.log('Form Submitted', this.onboardingForm.value)
     const path = ""
