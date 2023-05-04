@@ -24,6 +24,6 @@ export class OnboardingService {
       const error = new Error('An error occurred');
       throwError(error);
     }
-    return this.http.get<Onboarding>(`${this.baseUrl}/${id-1}`);
+    return this.http.get<Onboarding>(`${this.baseUrl}`);
   }
 }
