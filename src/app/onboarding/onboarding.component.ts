@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Onboarding} from "../models/onboarding.model";
 import {OnboardingService} from "../services/onboarding.service";
+import {Subscription} from "rxjs";
 /**
  * @title Inputs in a form
  */
@@ -12,15 +13,17 @@ import {OnboardingService} from "../services/onboarding.service";
   templateUrl: './onboarding.component.html',
   styleUrls: ['./onboarding.component.css']
 })
-export class OnboardingComponent implements OnInit {
+export class OnboardingComponent implements OnInit, OnDestroy {
   public onboardingForm!: FormGroup
   public years: Array<Onboarding> = [];
   public organizations: Array<Onboarding> = [];
+  private unsubscribe: Subscription[] = [];
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private onboardingService: OnboardingService) {}
+              private onboardingService: OnboardingService,) {}
 
   ngOnInit(): void {
+
       this.onboardingForm = this.formBuilder.group({
       'universityYear': ['', [Validators.required]],
       'organization': ['', [Validators.required]],
@@ -31,13 +34,25 @@ export class OnboardingComponent implements OnInit {
       'uploadImage': ['', [Validators.required]]
     });
 
-    this.onboardingService.getAll().subscribe((data) => this.years = data);
-    this.onboardingService.getAll().subscribe((data) => this.organizations = data);
+    this.unsubscribe.push(
+      this.onboardingService.getAll().subscribe((data) => {
+        console.log(data);
+        this.years = data;
+        this.organizations = data;
+      })
+    );
   }
+
   submitForm() {
-    console.log('Form Submitted', this.onboardingForm.value)
-    const path = ""
-    this.router.navigate([path])
+    if (!this.onboardingForm.valid) {
+      console.log('Form Submitted', this.onboardingForm.value)
+      this.router.navigate([""])
+      return;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.forEach(obs => obs.unsubscribe());
   }
 
   navigateToHomepage(): void {
