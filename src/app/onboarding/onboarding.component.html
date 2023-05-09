@@ -7,8 +7,8 @@
           <mat-label>University year</mat-label>
           <mat-select [formControlName]="'universityYear'">
             <mat-option *ngFor="let year of years"
-                         [value]="year.universityYear">
-              {{year.universityYear}}
+                        [value]="year">
+              {{year}}
             </mat-option>
           </mat-select>
         </mat-form-field></td>
@@ -16,8 +16,8 @@
           <mat-label>Choose organization</mat-label>
           <mat-select [formControlName]="'organization'">
             <mat-option *ngFor="let org of organizations"
-                         [value]="org.organization">
-              {{org.organization}}
+                        [value]="org">
+              {{org}}
             </mat-option>
           </mat-select>
         </mat-form-field></td>

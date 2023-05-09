@@ -15,8 +15,8 @@ import {Subscription} from "rxjs";
 })
 export class OnboardingComponent implements OnInit, OnDestroy {
   public onboardingForm!: FormGroup
-  public years: Array<Onboarding> = [];
-  public organizations: Array<Onboarding> = [];
+  public years: number[] = [];
+  public organizations: string[] = [];
   private unsubscribe: Subscription[] = [];
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -24,7 +24,7 @@ export class OnboardingComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-      this.onboardingForm = this.formBuilder.group({
+    this.onboardingForm = this.formBuilder.group({
       'universityYear': ['', [Validators.required]],
       'organization': ['', [Validators.required]],
       'shortBio': ['', [Validators.required]],
@@ -35,19 +35,20 @@ export class OnboardingComponent implements OnInit, OnDestroy {
     });
 
     this.unsubscribe.push(
-      this.onboardingService.getAll().subscribe((data) => {
-        console.log(data);
-        this.years = data;
-        this.organizations = data;
+      this.onboardingService.getAll().subscribe((metadata) => {
+        console.log(metadata);
+        this.years = metadata.universityYears.sort((a, b) => a - b);
+        this.organizations = metadata.organizations.sort();
       })
     );
   }
 
   submitForm() {
-    if (!this.onboardingForm.valid) {
-      console.log('Form Submitted', this.onboardingForm.value)
-      this.router.navigate([""])
-      return;
+    if (this.onboardingForm.valid) {
+      console.log('Form Submitted', this.onboardingForm.value);
+      this.onboardingService.onboarding(this.onboardingForm.value).subscribe(() => {
+        this.router.navigate([""]);
+      });
     }
   }
 
