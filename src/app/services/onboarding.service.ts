@@ -3,6 +3,7 @@ import {Onboarding} from "../models/onboarding.model";
 import {Observable, of, throwError} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {OnboardingMetadata} from "../models/onboarding-metadata.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class OnboardingService {
     return this.http.post<Onboarding>(`${this.baseUrl}`, OnboardingData)
   }
 
-  getAll(): Observable<Onboarding[]> {
-    return this.http.get<Onboarding[]>(`${this.baseUrl}`);
+  getAll(): Observable<OnboardingMetadata> { // todo rename method
+    return this.http.get<OnboardingMetadata>(`${this.baseUrl}`);
   }
 
   getById(id: number): Observable<Onboarding>{
