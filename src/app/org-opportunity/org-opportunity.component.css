@@ -54,3 +54,7 @@ div span {
 .example-card {
   max-width: 350px;
 }
+
+.title {
+  display: block;
+}

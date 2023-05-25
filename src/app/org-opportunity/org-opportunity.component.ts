@@ -2,8 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Opportunity} from "../models/opportunity.model";
 import {Subscription} from "rxjs";
-import {OpportunityService} from "../services/opportunity.service";
-import {CreateOpportunityService} from "../services/create-opportunity.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-org-opportunity',
@@ -12,17 +11,25 @@ import {CreateOpportunityService} from "../services/create-opportunity.service";
 })
 export class OrgOpportunityComponent implements OnInit, OnDestroy{
 
+  private unsubscribe: Subscription[] = [];
   public opportunities: Array<Opportunity> = []
-  private unsubscribe: Subscription | undefined;
+  private opportunityId!: number;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private opportunityService: OpportunityService) {}
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {
+  }
 
   ngOnInit(): void {
-    this.unsubscribe = this.opportunityService.getAll().subscribe((data) => this.opportunities = data)
+    this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
+      this.opportunityId = data['orgOpportunity'];
+      this.opportunities = data['orgOpportunity'];
+      console.log("DATA :: ", data)
+      console.log(this.opportunities)
+    }));
   }
 
   ngOnDestroy(): void {
-    this.unsubscribe!.unsubscribe()
+    this.unsubscribe.forEach(obs => obs.unsubscribe());
   }
 
   navigateToCreateOpportunity() {
@@ -38,12 +45,6 @@ export class OrgOpportunityComponent implements OnInit, OnDestroy{
   navigateToOpportunity(id: number){
     this.router.navigate([
       "opportunity/" + id
-    ])
-  }
-
-  navigateToLandingPage() {
-    this.router.navigate([
-      ''
     ])
   }
 }

@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {FormBuilder, Validators} from "@angular/forms";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Opportunity} from "../models/opportunity.model";
-import {CreateOpportunityService} from "../services/create-opportunity.service";
+import {Subscription} from "rxjs";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
+import {OpportunityService} from "../services/opportunity.service";
 
 @Component({
   selector: 'app-create-opportunity',
@@ -11,28 +13,60 @@ import {CreateOpportunityService} from "../services/create-opportunity.service";
 })
 export class CreateOpportunityComponent implements OnInit{
 
+  @Output()
+  saveOpportunity: EventEmitter<Opportunity> = new EventEmitter<Opportunity>();
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private createOpportunityService: CreateOpportunityService) {}
+  @Input()
+  milestone: Opportunity | undefined;
+  private image!: Blob;
 
-  registerForm: any;
+  public createOpportunityForm!: FormGroup;
+
+  private opportunityId!: number;
+  private unsubscribe: Subscription[] = [];
+  private imageUrl!: SafeUrl
+
+  constructor(private formBuilder: FormBuilder,
+              private opportunityService: OpportunityService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private sanitize: DomSanitizer) {
+  }
+
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      'title': ['', [Validators.required]],
-      'date': ['', [Validators.required]],
-      'description': ['', [Validators.required]],
-      'requirements': ['', [Validators.required]],
+    this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
+      this.opportunityId = data['orgOpportunity'];
+    }));
+
+    this.createOpportunityForm = this.formBuilder.group({
+      'id': [this.milestone?.id],
+      'title': [this.milestone?.title, Validators.required],
+      'description': [this.milestone?.description, Validators.required],
+      'coverImage': [this.milestone?.coverImage, Validators.required],
     });
   }
 
-  createOpportunity(opportunity: Opportunity): void {
-    this.createOpportunityService.createOpportunity(opportunity).subscribe(() => {
-      this.create();
-    })
+  ngOnDestroy(): void {
+    this.unsubscribe.forEach(obs => obs.unsubscribe());
   }
 
-  public create() {
-    return this.router.navigate([
-      'orgOpportunity'
-    ])
+  public submit(): void {
+    if (!this.createOpportunityForm.valid) {
+      return;
+    }
+    this.saveOpportunity.emit(this.createOpportunityForm.value);
+  }
+
+  onImagesSelected(event: any) {
+    this.image = event.target.files[0].imageURL;
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    // reader.onload = () => {
+    //   const formData = new FormData();
+    //   formData.append('image', this.image)
+    //   console.log(reader.result)
+    //   this.imageUrl = this.sanitize.bypassSecurityTrustUrl(URL.createObjectURL(this.image));
+    // };
   }
 }

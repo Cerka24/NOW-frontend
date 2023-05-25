@@ -1,27 +1,22 @@
-<p>{{title}}</p>
+<header>
+  <img src="assets/NOW-logo.svg" style="width: 64px">
+  <p>{{title}}</p>
+</header>
 
-<button (click)="navigateToOrgOpportunity()">NAVIGATE TO ORG-OPPORTUNITY</button>
-<div>
-  <button type="button" (click)="navigateToOnboarding()">Onboarding</button>
-</div>
-
-
-<button type="button" (click)="navigateToMyWork()" mat-button>MyWork</button>
-
-<div>
-
-  <mat-card (click)="navigateToOpportunity(op.id)" class="example-card" *ngFor="let op of opportunities;">
-    <img mat-card-image src="{{op.coverImage}}" alt="Cover">
-    <mat-card-subtitle>Opportunity</mat-card-subtitle>
-    <mat-card-title>{{op.title}}</mat-card-title>
-    <mat-card-content>
-      <p>
-        {{op.description}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>APPLY</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+<div id="grid">
+  <div id="card">
+    <mat-card (click)="navigateToOpportunity(op.id)" class="example-card" *ngFor="let op of opportunities;">
+      <img mat-card-image src="{{op.coverImage}}" alt="Cover" id="image">
+      <mat-card-title id="title">{{op.title}}</mat-card-title>
+      <mat-card-content>
+        <p id="description">
+          {{op.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>APPLY</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>

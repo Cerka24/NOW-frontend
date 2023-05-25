@@ -37,6 +37,8 @@ import { OrgRegisterComponent } from './org-register/org-register.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HeaderAuthComponent} from "./header-auth/header-auth.component";
+import { AddOpportunityComponent } from './add-opportunity/add-opportunity.component';
+import {MatFormFieldControl} from "@angular/material/form-field";
 
 
 @NgModule({
@@ -54,7 +56,8 @@ import {HeaderAuthComponent} from "./header-auth/header-auth.component";
     OnboardingComponent,
     StudentListComponent,
     MyWorkComponent,
-    HeaderAuthComponent
+    HeaderAuthComponent,
+    AddOpportunityComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,7 @@ import {HeaderAuthComponent} from "./header-auth/header-auth.component";
     MatTableModule,
     MatSnackBarModule,
     MatToolbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     OpportunityService,
