@@ -1,7 +1,15 @@
-<body>
-  <div id="form">
+<mat-toolbar class="header-container" style="display: flex; justify-content: space-between">
+  <img src="assets/NOW-logo.svg" style="width: 64px">
+  <div>
+    <a mat-flat-button (click)="navigateToHomepage()" target="_self">Homepage</a>
+    <a mat-flat-button (click)="navigateToLandingPage()" target="_self">Logout</a>
+  </div>
+</mat-toolbar>
+
+<div id="form">
     <form [formGroup]="onboardingForm" (ngSubmit)="submitForm()" class="example-form">
-      <h2 id="title">Hello! Please tell us a little about <br> yourself.</h2>
+      <h2 id="title">Hello! Please tell us a little about yourself.</h2>
+     <div class="wrapper">
       <table class="example-full-width" cellspacing="0"><tr>
         <td><mat-form-field appearance="fill">
           <mat-label>University year</mat-label>
@@ -35,7 +43,9 @@
           <textarea type="text" matInput [formControlName]="'certificates'" placeholder=""></textarea>
         </mat-form-field>
       </p>
+     </div>
 
+      <div class="wrapper">
       <table class="example-full-width" cellspacing="0">
         <tr><td><mat-form-field class="example-full-width">
           <mat-label> Linkedin URL </mat-label>
@@ -51,11 +61,11 @@
           <textarea type="text" matInput [formControlName]="'uploadImage'" placeholder=""></textarea>
         </mat-form-field></td>
       </table>
+      </div>
       <div class="example-button-row" id="example-flex-container">
         <button type="submit" mat-stroked-button>Submit</button>
         <button type="button" (click)="navigateToHomepage()" mat-stroked-button>Close</button>
       </div>
     </form>
   </div>
-</body>
 

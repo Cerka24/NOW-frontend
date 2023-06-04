@@ -16,7 +16,7 @@ export class OnboardingService {
     return this.http.post<Onboarding>(`${this.baseUrl}`, OnboardingData)
   }
 
-  getAll(): Observable<OnboardingMetadata> { // todo rename method
+  getYearAndOrg(): Observable<OnboardingMetadata> {
     return this.http.get<OnboardingMetadata>(`${this.baseUrl}`);
   }
 

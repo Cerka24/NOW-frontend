@@ -1,41 +1,64 @@
-body {
-  margin: 0 auto;
+*{
+  font-family: Poppins, sans-serif;
+  margin: 0;
+}
+
+.header-container{
+  padding-left: 40px;
+  padding-right: 40px;
+  border-bottom: 0.5px solid #cfcfcf;
+  background: white;
+}
+
+a{
+  color: #F28245;
+}
+a:hover{
+  color: #cc6933;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+header span {
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 5px;
 }
 
 div #title{
   align-content: center;
-  font-family: Roboto, sans-serif;
   letter-spacing: 1.9px;
   margin-bottom: 15%;
   font-style: normal;
   font-weight: 500;
   font-size: 25px;
   line-height: 36px;
-  color: rgba(0, 0, 0, 0.68);
 }
 
 #form{
   left: 50%;
   top: 50%;
-  margin-left: -20%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -40%;
   position: absolute;
-  margin-top: -20%;
+  margin-top: -13%;
   padding: 1% 5%;
-  /*background: #F5F5F5;*/
-  border: 2px solid rgba(0, 0, 0, 0.3);
-  border-radius: 3%;
+  border: 0.5px solid #cfcfcf;
 
 }
+
 .example-form {
-  min-width: 150px;
-  max-width: 550px;
+  min-width: 250px;
+  max-width: 1000px;
   width: 100%;
-  margin: 15px 0;
+  margin: 15px 5px;
   position: center;
 }
 #image_upload{
   width: 100%;
-
 }
 .example-full-width {
   width: 100%;

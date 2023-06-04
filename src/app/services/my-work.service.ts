@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {MyWork} from "../models/my-work.model";
+import {environment} from "../../environments/environment";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyWorkService {
-
-  constructor() {}
+  private readonly baseUrl: string = `${environment.backendUrl}/my-works`;
+  constructor(private http: HttpClient) {}
 
   getWork(): Observable<MyWork[]> {
+    return this.http.get<MyWork[]>(`${this.baseUrl}`);
+  }
+ /* getWork(): Observable<MyWork[]> {
     return of([
       {
         opportunity: 'Angular Developer (Vision)',
@@ -68,7 +73,7 @@ export class MyWorkService {
         status: 'APPROVED'
       }
     ]);
-  }
+  }*/
 
   createWork(work: MyWork): Observable<MyWork> {
     console.log('Reached workService with intention to create work:', work);
