@@ -35,7 +35,7 @@ export class OnboardingComponent implements OnInit, OnDestroy {
     });
 
     this.unsubscribe.push(
-      this.onboardingService.getAll().subscribe((metadata) => {
+      this.onboardingService.getYearAndOrg().subscribe((metadata) => {
         console.log(metadata);
         this.years = metadata.universityYears.sort((a, b) => a - b);
         this.organizations = metadata.organizations.sort();
@@ -59,6 +59,12 @@ export class OnboardingComponent implements OnInit, OnDestroy {
   navigateToHomepage(): void {
     const path = ""
     this.router.navigate([path])
+  }
+
+  navigateToLandingPage() {
+    this.router.navigate([
+      ''
+    ])
   }
 
 }
