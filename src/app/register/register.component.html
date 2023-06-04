@@ -1,11 +1,13 @@
 <app-header-auth></app-header-auth>
-
-<div class="wrapper">
-  <div class="container-form">
-    <h1>Register</h1>
+  <div class="wrap-center-vertical wrap-column">
+    <img src="assets/register.svg">
+    <div class="wrap-center-vertical wrap-column">
+      <h1>Register</h1>
+      <p>Empowering Student Volunteers</p>
+    </div>
     <div>
       <form [formGroup]="registerForm" (ngSubmit)="submit()">
-        <div class="container-inputs">
+        <div class="wrap-column">
           <mat-form-field>
             <mat-label>Full Name</mat-label>
             <input type="text" [formControlName]="'fullName'" matInput placeholder="Enter your full name">
@@ -27,4 +29,3 @@
       </form>
     </div>
   </div>
-</div>

@@ -37,6 +37,9 @@ import { OrgRegisterComponent } from './org-register/org-register.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HeaderAuthComponent} from "./header-auth/header-auth.component";
+import { HeaderGuestComponent } from './header-guest/header-guest.component';
+import { HeaderMainComponent } from './header-main/header-main.component';
+import { HeaderMainOrgComponent } from './header-main-org/header-main-org.component';
 
 
 @NgModule({
@@ -54,7 +57,10 @@ import {HeaderAuthComponent} from "./header-auth/header-auth.component";
     OnboardingComponent,
     StudentListComponent,
     MyWorkComponent,
-    HeaderAuthComponent
+    HeaderAuthComponent,
+    HeaderGuestComponent,
+    HeaderMainComponent,
+    HeaderMainOrgComponent
   ],
   imports: [
     BrowserModule,

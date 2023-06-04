@@ -1,4 +1,114 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  width: 1200px;
+  font-family: DM Sans, "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+form {
+  width: 360px;
+}
+
+a {
+  font-weight: 400;
+}
+
+a:hover {
+  color: #cc6933;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* alignment */
+.wrap-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.wrap-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap-space-horizontal {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrap-center-vertical {
+  display: flex;
+  align-items: center;
+}
+
+.separator-down {
+  margin-bottom: 40px;
+}
+
+.separator-up-down {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.separator-right {
+  margin-right: 16px;
+}
+
+/* buttons */
+.button-link {
+  color: #F28245;
+  font-family: DM Sans, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+}
+
+.button-link:hover {
+  color: #E56722;
+  cursor: pointer;
+}
+
+.button-secondary-regular {
+  font-family: DM Sans, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.primary-button {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: DM Sans, "Helvetica Neue", sans-serif;
+}

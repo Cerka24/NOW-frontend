@@ -14,8 +14,6 @@ export class HomeComponent {
   public opportunities: Array<Opportunity> = []
   private unsubscribe: Subscription | undefined;
 
-  title = "Now Home"
-
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private opportunityService: OpportunityService) {}
 
   ngOnInit(): void {

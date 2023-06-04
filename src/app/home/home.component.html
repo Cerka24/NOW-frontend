@@ -1,13 +1,9 @@
-<p>{{title}}</p>
+<app-header-main></app-header-main>
 
-<button (click)="navigateToOrgOpportunity()">NAVIGATE TO ORG-OPPORTUNITY</button>
 <div>
-  <button type="button" (click)="navigateToOnboarding()">Onboarding</button>
+  <h2>The Land of opportunities 🏰</h2>
+  <h4>All volunteer jobs are below, apply forever free.</h4>
 </div>
-
-
-<button type="button" (click)="navigateToMyWork()" mat-button>MyWork</button>
-
 <div>
 
   <mat-card (click)="navigateToOpportunity(op.id)" class="example-card" *ngFor="let op of opportunities;">
