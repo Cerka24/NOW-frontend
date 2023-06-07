@@ -40,6 +40,7 @@ import {HeaderAuthComponent} from "./header-auth/header-auth.component";
 import { HeaderGuestComponent } from './header-guest/header-guest.component';
 import { HeaderMainComponent } from './header-main/header-main.component';
 import { HeaderMainOrgComponent } from './header-main-org/header-main-org.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { HeaderMainOrgComponent } from './header-main-org/header-main-org.compon
     HeaderAuthComponent,
     HeaderGuestComponent,
     HeaderMainComponent,
-    HeaderMainOrgComponent
+    HeaderMainOrgComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
