@@ -15,6 +15,7 @@ import {MyWorkResolver} from "./resolvers/my-work.resolver";
 import {OrgOpportunityComponent} from "./org-opportunity/org-opportunity.component";
 import {CreateOpportunityComponent} from "./create-opportunity/create-opportunity.component";
 import {StudentListResolver} from "./resolvers/student-list.resolver";
+import {PortfolioComponent} from "./portfolio/portfolio.component";
 
 
 const routes: Routes = [
@@ -41,6 +42,10 @@ const routes: Routes = [
     resolve:{
       'works' : MyWorkResolver
     }
+  },
+  {
+    path: "portfolio",
+    component: PortfolioComponent
   },
   {
 
