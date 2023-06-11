@@ -12,7 +12,8 @@
       <div>
         <button *ngIf="isOwner" type="button" class="primary-button separator-right" mat-flat-button color="primary">Edit details</button>
         <button *ngIf="isOwner" type="button" class="button-secondary-regular" mat-stroked-button>Delete opportunity</button>
-        <button *ngIf="!isOwner" type="button" (click)="openApply(id)" class="primary-button separator-right" mat-flat-button color="primary">Apply</button>
+        <button *ngIf="!isOwner && !isApplied" type="button" (click)="openApply(id)" class="primary-button separator-right" mat-flat-button color="primary">Apply</button>
+        <h4  *ngIf="isApplied" > Applied at: {{formatDate(appliedAt, "dd. MMM yyyy hh:mm", "en-US ")}}</h4>
 
       </div>
     </div>

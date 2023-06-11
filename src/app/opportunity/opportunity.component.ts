@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {DomSanitizer} from "@angular/platform-browser";
 import {OpportunityService} from "../services/opportunity.service";
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-opportunity',
@@ -20,6 +21,9 @@ export class OpportunityComponent {
 
   public isOrg: boolean = false
   public isOwner: boolean = false
+
+  public appliedAt: string = ''
+  public isApplied: boolean = false
 
 
   private unsubscribe: Subscription[] = [];
@@ -46,6 +50,13 @@ export class OpportunityComponent {
       this.coverImage = data["opportunity"].opportunityDto.coverImage
       this.applicants = data["opportunity"].applications
 
+      const myApplication = data["opportunity"].myApplication
+
+      if(myApplication){
+        this.isApplied = true
+        this.appliedAt = data["opportunity"].myApplication.createdAt
+      }
+
       const creatorId = data["opportunity"].opportunityDto.organizationId
 
       if(currentId === creatorId){
@@ -59,4 +70,5 @@ export class OpportunityComponent {
     this.router.navigate(["/opportunity", id, "apply"])
   }
 
+  protected readonly formatDate = formatDate;
 }

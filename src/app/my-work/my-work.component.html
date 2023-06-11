@@ -8,24 +8,24 @@
 <table mat-table [dataSource]="works" class="mat-elevation-z8">
   <ng-container matColumnDef="opportunity">
     <th mat-header-cell *matHeaderCellDef> Opportunity </th>
-    <td mat-cell *matCellDef="let element"> {{element.opportunity}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.opportunity.title}} </td>
   </ng-container>
 
   <ng-container matColumnDef="organization">
     <th mat-header-cell *matHeaderCellDef> Organization </th>
-    <td mat-cell *matCellDef="let element"> {{element.organization}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.organizationName}} </td>
   </ng-container>
 
   <ng-container matColumnDef="date_created">
     <th mat-header-cell *matHeaderCellDef> Application created on </th>
-    <td mat-cell *matCellDef="let element"> {{element.date_created}} </td>
+    <td mat-cell *matCellDef="let element"> {{formatDate(element.application.createdAt, "dd. MMMM yyyy", 'en-US')}} </td>
   </ng-container>
 
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef> Status </th>
-    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.application.status}} </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openOpportunity(row.opportunity.id)"></tr>
 </table>

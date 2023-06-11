@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import {
-  Router, Resolve,
+   Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import {MyWork} from "../models/my-work.model";
-import {MyWorkService} from "../services/my-work.service";
+import {OpportunityApplicationService} from "../services/opportunity-application";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyWorkResolver implements Resolve<MyWork[]> {
-  constructor(private myWorkService: MyWorkService) {}
+  constructor(private opportunityApplicationService: OpportunityApplicationService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<MyWork[]> {
-     /* const id = route.paramMap.get('id');*/
-    return this.myWorkService.getWork()
+    return this.opportunityApplicationService.getMyApplications()
   }
 }
