@@ -60,14 +60,14 @@ const routes: Routes = [
   },
 
   {
-    path: "opportunity",
+    path: "opportunity/:id",
     component: OpportunityComponent,
     resolve:{
       'opportunity': OpportunityResolver
     }
   },
   {
-    path: "apply",
+    path: "opportunity/:id/apply",
     component: ApplyOpportunityComponent
   },
   {

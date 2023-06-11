@@ -19,6 +19,9 @@ export class HomeComponent implements OnInit, OnDestroy{
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private opportunityService: OpportunityService) {}
 
   ngOnInit(): void {
+    if(!localStorage.getItem("authToken")){
+      this.router.navigate(["/"])
+    }
     this.opportunityService.getOpportunities().subscribe((data) => this.opportunities = data)
   }
 

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, ActivatedRouteSnapshot, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {OpportunityApplicationService} from "../services/opportunity-application";
 
 @Component({
   selector: 'app-apply-opportunity',
@@ -11,13 +12,17 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class ApplyOpportunityComponent {
   public applyForm!: FormGroup
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private _snackBar: MatSnackBar) {
+  public id: number = 0
+
+  constructor(private router: Router, private formBuilder: FormBuilder, private _snackBar: MatSnackBar, private route: ActivatedRoute, private opportunityApplicationService: OpportunityApplicationService) {
   }
 
   ngOnInit(): void {
     this.applyForm = this.formBuilder.group({
-      'text': ['', [Validators.required, Validators.min(100), Validators.max(10000)]],
+      'coverLetter': ['', [Validators.required, Validators.min(100), Validators.max(10000)]],
     });
+    const id: string = this.route.snapshot.paramMap.get('id')!;
+    this.id = +id;
   }
 
   public submit(): void {
@@ -27,5 +32,18 @@ export class ApplyOpportunityComponent {
       })
       return;
     }
+
+    this.opportunityApplicationService.createApplication(this.applyForm.value.coverLetter, this.id).subscribe((data: any) => {
+      console.log(data)
+      //TODO: Save this data to use across app
+      this._snackBar.open("Successfully Applied", '', {
+        duration: 1000
+      })
+      this.router.navigate(["/home"])
+    }, error => {
+      this._snackBar.open("Error while applying", '', {
+        duration: 1000
+      })
+    })
   }
 }
