@@ -43,6 +43,7 @@ import { HeaderGuestComponent } from './header-guest/header-guest.component';
 import { HeaderMainComponent } from './header-main/header-main.component';
 import { HeaderMainOrgComponent } from './header-main-org/header-main-org.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import {MatChipsModule} from "@angular/material/chips";
 
 
 @NgModule({
@@ -67,26 +68,27 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     HeaderMainOrgComponent,
     PortfolioComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    HttpClientModule,
-    MatGridListModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    FormsModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatTableModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        HttpClientModule,
+        MatGridListModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        FormsModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatTableModule,
+        MatSnackBarModule,
+        MatToolbarModule,
+        ReactiveFormsModule,
+        MatChipsModule,
+    ],
   providers: [
     OpportunityService,
     OpportunityResolver,
