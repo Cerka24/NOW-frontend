@@ -16,8 +16,13 @@ export class OpportunityService {
     return this.http.get<Opportunity[]>(`${this.baseUrl}/opportunity`);
   }
 
-  getOpportunity(opportunityId: number): Observable<Opportunity> {
+  getOpportunity(opportunityId: number): Observable<any> {
+
+    return of({
+
+    })
     return this.http.get<Opportunity>(`${this.baseUrl}/${opportunityId}`);
+
   }
 
   createOpportunity(opportunity: Opportunity): Observable<Opportunity> {

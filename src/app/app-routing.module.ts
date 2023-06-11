@@ -18,6 +18,7 @@ import {StudentListResolver} from "./resolvers/student-list.resolver";
 import {AddOpportunityComponent} from "./add-opportunity/add-opportunity.component";
 import {OpportunitiesResolver} from "./resolvers/opportunities.resolver";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
+import {ApplyOpportunityComponent} from "./apply-opportunity/apply-opportunity.component";
 
 
 const routes: Routes = [
@@ -57,6 +58,18 @@ const routes: Routes = [
       'onboarding': OnboardingResolver
      }
   },
+
+  {
+    path: "opportunity",
+    component: OpportunityComponent,
+    resolve:{
+      'opportunity': OpportunityResolver
+    }
+  },
+  {
+    path: "apply",
+    component: ApplyOpportunityComponent
+  },
   {
     path: 'orgOpportunity/createOpportunity',
     component: AddOpportunityComponent,
@@ -90,13 +103,6 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterComponent
-  },
-  {
-    path: "opportunity/:id",
-    component: OpportunityComponent,
-    resolve:{
-      'opportunity': OpportunityResolver
-    }
   }
 ];
 

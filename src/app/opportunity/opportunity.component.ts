@@ -18,21 +18,6 @@ export class OpportunityComponent {
   private unsubscribe: Subscription | undefined;
 
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
-
-
-  ngOnInit(): void {
-    this.unsubscribe = this.activatedRoute.data.subscribe((data) => {
-      console.log("DATA :: ", data)
-      this.opportunity = data['opportunity'];
-      this.title = data['opportunity'].title
-      this.description = data['opportunity'].description
-      this.coverImage = data['opportunity'].coverImage
-    });
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
-
-  ngOnDestroy(): void {
-    this.unsubscribe!.unsubscribe()
-  }
-
 }
