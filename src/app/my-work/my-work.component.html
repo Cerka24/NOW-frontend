@@ -1,25 +1,26 @@
 <app-header-main></app-header-main>
 
+<div>
+  <h2>Review your works 📋</h2>
+  <h4>Search through the list of your finished jobs below.</h4>
+</div>
+
 <table mat-table [dataSource]="works" class="mat-elevation-z8">
-  <!-- Opportunity Column -->
   <ng-container matColumnDef="opportunity">
     <th mat-header-cell *matHeaderCellDef> Opportunity </th>
     <td mat-cell *matCellDef="let element"> {{element.opportunity}} </td>
   </ng-container>
 
-  <!-- Organization Column -->
   <ng-container matColumnDef="organization">
     <th mat-header-cell *matHeaderCellDef> Organization </th>
     <td mat-cell *matCellDef="let element"> {{element.organization}} </td>
   </ng-container>
 
-  <!-- Application created on Column -->
   <ng-container matColumnDef="date_created">
     <th mat-header-cell *matHeaderCellDef> Application created on </th>
     <td mat-cell *matCellDef="let element"> {{element.date_created}} </td>
   </ng-container>
 
-  <!-- Status Column -->
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef> Status </th>
     <td mat-cell *matCellDef="let element"> {{element.status}} </td>
