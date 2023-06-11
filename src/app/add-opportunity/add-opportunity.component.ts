@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {OpportunityService} from "../services/opportunity.service";
@@ -9,7 +9,7 @@ import {Opportunity} from "../models/opportunity.model";
   templateUrl: './add-opportunity.component.html',
   styleUrls: ['./add-opportunity.component.css']
 })
-export class AddOpportunityComponent {
+export class AddOpportunityComponent implements OnInit, OnDestroy{
   private opportunityId!: number;
   private unsubscribe: Subscription[] = [];
 

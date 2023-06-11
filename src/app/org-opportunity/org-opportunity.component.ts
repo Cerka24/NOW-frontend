@@ -2,7 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Opportunity} from "../models/opportunity.model";
 import {Subscription} from "rxjs";
-import {DomSanitizer} from "@angular/platform-browser";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
+import {OpportunityService} from "../services/opportunity.service";
 
 @Component({
   selector: 'app-org-opportunity',
@@ -13,10 +14,11 @@ export class OrgOpportunityComponent implements OnInit, OnDestroy{
 
   private unsubscribe: Subscription[] = [];
   public opportunities: Array<Opportunity> = []
-  private opportunityId!: number;
-
+  public opportunityId!: number;
+  public imagePath: SafeUrl | undefined;
+  public opportunity: Opportunity | undefined;
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {
+              private activatedRoute: ActivatedRoute, public sanitize: DomSanitizer, private opportunityService: OpportunityService) {
   }
 
   ngOnInit(): void {
@@ -28,6 +30,12 @@ export class OrgOpportunityComponent implements OnInit, OnDestroy{
     }));
   }
 
+  public displayImage(id: number): void {
+    this.opportunityService.getOpportunity(id).subscribe(opportunity => {
+      this.opportunity = opportunity;
+      this.imagePath = this.sanitize.bypassSecurityTrustUrl(opportunity.coverImage);
+    })
+  }
   ngOnDestroy(): void {
     this.unsubscribe.forEach(obs => obs.unsubscribe());
   }
@@ -44,7 +52,13 @@ export class OrgOpportunityComponent implements OnInit, OnDestroy{
   }
   navigateToOpportunity(id: number){
     this.router.navigate([
-      "opportunity/" + id
+      'opportunity/' + id
+    ])
+  }
+
+  navigateToLandingPage() {
+    this.router.navigate([
+      'register'
     ])
   }
 }

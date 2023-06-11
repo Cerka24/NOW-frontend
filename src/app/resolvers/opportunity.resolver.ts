@@ -16,7 +16,7 @@ export class OpportunityResolver implements Resolve<Opportunity> {
   constructor(private opportunityService: OpportunityService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Opportunity> {
-    const id: string = route.paramMap.get('orgOpportunity')!;
+    const id: string = route.paramMap.get('id')!;
     if(!id) {
       // handle error
     }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Opportunity} from "../models/opportunity.model";
@@ -11,26 +11,31 @@ import {OpportunityService} from "../services/opportunity.service";
   templateUrl: './create-opportunity.component.html',
   styleUrls: ['./create-opportunity.component.css']
 })
-export class CreateOpportunityComponent implements OnInit{
+export class CreateOpportunityComponent implements OnInit, OnDestroy{
 
   @Output()
   saveOpportunity: EventEmitter<Opportunity> = new EventEmitter<Opportunity>();
 
   @Input()
-  milestone: Opportunity | undefined;
+  newOpportunity: Opportunity | undefined;
   private image!: Blob;
 
   public createOpportunityForm!: FormGroup;
 
-  private opportunityId!: number;
+  public opportunityId!: number;
   private unsubscribe: Subscription[] = [];
-  private imageUrl!: SafeUrl
+
+  public opportunities: Opportunity[] = [];
+  public opportunity: Opportunity | undefined;
+
+  public imagePath: SafeUrl | undefined;
+  private url?: string | ArrayBuffer | null;
 
   constructor(private formBuilder: FormBuilder,
               private opportunityService: OpportunityService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private sanitize: DomSanitizer) {
+              public sanitize: DomSanitizer) {
   }
 
   ngOnInit(): void {
@@ -39,10 +44,13 @@ export class CreateOpportunityComponent implements OnInit{
     }));
 
     this.createOpportunityForm = this.formBuilder.group({
-      'id': [this.milestone?.id],
-      'title': [this.milestone?.title, Validators.required],
-      'description': [this.milestone?.description, Validators.required],
-      'coverImage': [this.milestone?.coverImage, Validators.required],
+      'id': [this.newOpportunity?.id],
+      'title': [this.newOpportunity?.title, Validators.required],
+      'description': [this.newOpportunity?.description, Validators.required],
+      'requirements': [this.newOpportunity?.requirements, Validators.required],
+      'startDate': [this.newOpportunity?.startDate, Validators.required],
+      'endDate': [this.newOpportunity?.endDate, Validators.required],
+      'coverImage': [this.newOpportunity?.coverImage, Validators.required],
     });
   }
 
@@ -56,17 +64,42 @@ export class CreateOpportunityComponent implements OnInit{
     }
     this.saveOpportunity.emit(this.createOpportunityForm.value);
   }
-
   onImagesSelected(event: any) {
-    this.image = event.target.files[0].imageURL;
     const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    // reader.onload = () => {
-    //   const formData = new FormData();
-    //   formData.append('image', this.image)
-    //   console.log(reader.result)
-    //   this.imageUrl = this.sanitize.bypassSecurityTrustUrl(URL.createObjectURL(this.image));
-    // };
+    if(file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        if (typeof reader.result === "string") {
+          this.imagePath = this.sanitize.bypassSecurityTrustUrl(reader.result)
+        }
+        console.log(reader.result)
+      };
+    }
   }
+  // public showImage(id:number):void {
+  //   this.opportunityService.getOpportunity(id).subscribe(opportunity => {
+  //     this.imagePath = this.sanitize.bypassSecurityTrustUrl(opportunity.coverImage);
+  //   });
+  // }
+
+  // public fileSelected(event: any): void {
+  //   const file: File = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     const fileName = file.name;
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => {
+  //       console.log(reader.result);
+  //
+  //       // const opportunity: Opportunity = {
+  //       //   title: fileName,
+  //       //   coverImage: reader.result as string,
+  //       // }
+  //       this.opportunityService.getOpportunities().subscribe(() => {
+  //         console.log('screenshot uploaded');
+  //       });
+  //     };
+  //   }
+  // }
 }
