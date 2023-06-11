@@ -43,6 +43,8 @@ import { HeaderGuestComponent } from './header-guest/header-guest.component';
 import { HeaderMainComponent } from './header-main/header-main.component';
 import { HeaderMainOrgComponent } from './header-main-org/header-main-org.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { ApplicantListComponent } from './applicant-list/applicant-list.component';
+import { ApplyOpportunityComponent } from './apply-opportunity/apply-opportunity.component';
 
 
 @NgModule({
@@ -65,7 +67,9 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     HeaderGuestComponent,
     HeaderMainComponent,
     HeaderMainOrgComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    ApplicantListComponent,
+    ApplyOpportunityComponent
   ],
   imports: [
     BrowserModule,
