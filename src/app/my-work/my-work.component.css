@@ -1,6 +1,9 @@
 .demo-table {
   width: 100%;
+}
 
+.mat-elevation-z8{
+  margin-top: 100px;
 }
 
 .mat-mdc-row .mat-mdc-cell {
@@ -15,22 +18,10 @@
 
 .demo-row-is-clicked {
   font-weight: bold;
-
 }
 
-/*Homepage button*/
-.action-button{
-  margin: 10px 10px 30px;
-  font-weight: bold;
-}
 .example-flex-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-
-.example-button-container {
-  display: flex;
-  justify-content: center;
-  width: 120px;
 }

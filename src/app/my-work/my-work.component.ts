@@ -19,17 +19,12 @@ export class MyWorkComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.displayedColumns = ['opportunity', 'organization', 'date_created', 'pts', 'status'];
+    this.displayedColumns = ['opportunity', 'organization', 'date_created', 'status'];
     this.unsubscribe = this.activatedRoute.data.subscribe(data => {
       this.works = data['works'];
     });
   }
   ngOnDestroy(): void {
     this.unsubscribe!.unsubscribe()
-  }
-  goBack(): void {
-    this.router.navigate([
-      '',
-    ]);
   }
 }
