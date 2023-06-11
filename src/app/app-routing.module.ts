@@ -39,7 +39,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: "my-works",
+    path: "my-work",
     component: MyWorkComponent,
     resolve:{
       'works' : MyWorkResolver
@@ -80,7 +80,7 @@ const routes: Routes = [
     component: CreateOpportunityComponent
   },
   {
-    path: 'orgOpportunity/studentList',
+    path: 'orgOpportunity/student-list',
     component: StudentListComponent,
     resolve: {
       'studentLists': StudentListResolver
