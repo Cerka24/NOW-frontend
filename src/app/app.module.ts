@@ -43,7 +43,8 @@ import { HeaderGuestComponent } from './header-guest/header-guest.component';
 import { HeaderMainComponent } from './header-main/header-main.component';
 import { HeaderMainOrgComponent } from './header-main-org/header-main-org.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
-import {MatChipsModule} from "@angular/material/chips";
+import { ApplicantListComponent } from './applicant-list/applicant-list.component';
+import { ApplyOpportunityComponent } from './apply-opportunity/apply-opportunity.component';
 
 
 @NgModule({
@@ -66,7 +67,9 @@ import {MatChipsModule} from "@angular/material/chips";
     HeaderGuestComponent,
     HeaderMainComponent,
     HeaderMainOrgComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    ApplicantListComponent,
+    ApplyOpportunityComponent
   ],
     imports: [
         BrowserModule,
@@ -86,8 +89,7 @@ import {MatChipsModule} from "@angular/material/chips";
         MatTableModule,
         MatSnackBarModule,
         MatToolbarModule,
-        ReactiveFormsModule,
-        MatChipsModule,
+        ReactiveFormsModule
     ],
   providers: [
     OpportunityService,

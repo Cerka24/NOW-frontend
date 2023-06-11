@@ -1,0 +1,18 @@
+<app-header-main></app-header-main>
+<div class="wrap-center-vertical wrap-column">
+  <div class="wrap-center-vertical wrap-column">
+    <h2>Survey politics research</h2>
+    <p>Please write a short cover letter!</p>
+  </div>
+  <div>
+    <form [formGroup]="applyForm" (ngSubmit)="submit()">
+      <div class="wrap-column">
+        <mat-form-field>
+          <mat-label>Cover Letter</mat-label>
+          <textarea rows="15" type="text" matInput [formControlName]="'coverLetter'" placeholder="Write your cover letter"></textarea>
+        </mat-form-field>
+        <button class="primary-button" mat-flat-button color="primary" type="submit">Apply to volunteer</button>
+      </div>
+    </form>
+  </div>
+</div>
