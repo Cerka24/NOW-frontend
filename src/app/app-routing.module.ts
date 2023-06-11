@@ -15,6 +15,8 @@ import {MyWorkResolver} from "./resolvers/my-work.resolver";
 import {OrgOpportunityComponent} from "./org-opportunity/org-opportunity.component";
 import {CreateOpportunityComponent} from "./create-opportunity/create-opportunity.component";
 import {StudentListResolver} from "./resolvers/student-list.resolver";
+import {AddOpportunityComponent} from "./add-opportunity/add-opportunity.component";
+import {OpportunitiesResolver} from "./resolvers/opportunities.resolver";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 
 
@@ -56,8 +58,22 @@ const routes: Routes = [
      }
   },
   {
+    path: 'orgOpportunity/createOpportunity',
+    component: AddOpportunityComponent,
+  },
+  {
     path: "orgOpportunity",
-    component: OrgOpportunityComponent
+    component: OrgOpportunityComponent,
+    resolve:{
+      'orgOpportunity': OpportunitiesResolver,
+    }
+  },
+  {
+    path: 'orgOpportunity/opportunity',
+    component: OrgOpportunityComponent,
+    resolve:{
+      'orgOpportunity': OpportunitiesResolver,
+    }
   },
   {
     path: "orgOpportunity/createOpportunity",
@@ -70,6 +86,10 @@ const routes: Routes = [
       'studentLists': StudentListResolver
 
     }
+  },
+  {
+    path: "register",
+    component: RegisterComponent
   },
   {
     path: "opportunity/:id",

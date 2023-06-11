@@ -20,6 +20,6 @@ export class StudentListResolver implements Resolve<StudentListModel[]> {
     if(!id) {
       // handle error
     }
-    return this.studentListService.getWork();
+    return this.studentListService.getStudentList();
   }
 }

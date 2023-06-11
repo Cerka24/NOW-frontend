@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {StudentListModel} from "../models/studentList.model";
+import {UserModel} from "../models/user.model";
 
 @Component({
   selector: 'app-student-list',
@@ -10,7 +11,7 @@ import {StudentListModel} from "../models/studentList.model";
 })
 export class StudentListComponent implements OnInit, OnDestroy{
 
-  public studentList!: StudentListModel[];
+  public studentList!: UserModel[];
   public displayedColumns: string[] = [];
   private unsubscribe: Subscription | undefined;
 
@@ -18,9 +19,11 @@ export class StudentListComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(): void {
-    this.displayedColumns = ['id', 'student', 'joined_on', 'email', 'rate', 'completed', 'points'];
+    // this.displayedColumns = ['id', 'student', 'joined_on', 'email', 'rate', 'completed', 'points'];
+    this.displayedColumns = ['id', 'fullName', 'phoneNumber', 'email', 'universityName', 'universityYear', 'shortBio', 'linkedinUrl', 'profileImageUrl'];
     this.unsubscribe = this.activatedRoute.data.subscribe(data => {
       this.studentList = data['studentLists'];
+      console.log(data)
     });
   }
   ngOnDestroy(): void {

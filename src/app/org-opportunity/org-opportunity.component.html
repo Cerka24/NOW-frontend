@@ -2,19 +2,29 @@
 
 <section>
   <div class="example-button-row">
-    <button mat-flat-button (click)="navigateToCreateOpportunity()">Create an opportunity</button>
+    <button mat-flat-button (click)="navigateToCreateOpportunity()">ADD NEW OPPORTUNITY</button>
   </div>
+  <h1>Opportunity dashboard</h1>
 </section>
 
 <div id="grid">
   <div id="card">
-    <mat-card (click)="navigateToOpportunity(op.id)" class="example-card" *ngFor="let op of opportunities;">
-      <img mat-card-image src="{{op.coverImage}}" alt="Cover" id="image">
+    <mat-card (click)="navigateToOpportunity(op.id)" (change)="displayImage(opportunityId)" class="example-card" *ngFor="let op of opportunities;">
+      <img mat-card-image [src]="imagePath" alt="Cover" id="image">
       <mat-card-title id="title">{{op.title}}</mat-card-title>
       <mat-card-content>
         <p id="description">
           {{op.description}}
         </p>
+<!--        <span>-->
+<!--          {{op.startDate}}-->
+<!--        </span>-->
+<!--        <span>-->
+<!--          {{op.endDate}}-->
+<!--        </span>-->
+        <mat-card-actions>
+          <button mat-button>Open</button>
+        </mat-card-actions>
       </mat-card-content>
     </mat-card>
   </div>

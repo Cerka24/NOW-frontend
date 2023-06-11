@@ -1,14 +1,19 @@
 header {
   padding: 40px;
-  border-bottom-style: solid;
   display: flex;
   justify-content: space-between;
 }
 
-header span {
+#opportunities{
+  color: #cc6933;
+}
+
+header .title a {
   font-weight: bold;
-  font-size: 20px;
-  padding-top: 5px;
+}
+
+header div a {
+  font-weight: bold;
 }
 
 div a {
@@ -17,9 +22,29 @@ div a {
   color: black;
 }
 
+header img {
+  padding-right: 600px;
+}
+section {
+  display: flex;
+  flex-flow: column;
+  padding-bottom: 20px;
+}
+
+section button {
+  background: #cc6933;
+  color: white;
+  margin-left: 20px;
+}
+
+section h1 {
+  margin-left: 50px;
+  position: absolute;
+}
 section div {
   margin-top: 20px;
   margin-left: 1400px;
+  margin-right: 20px;
 }
 
 div span {
@@ -53,4 +78,8 @@ div span {
 
 .example-card {
   max-width: 350px;
+}
+
+.title {
+  display: block;
 }
