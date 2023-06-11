@@ -7,12 +7,12 @@ import {environment} from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class OpportunityService {
-  private readonly baseUrl: string = `${environment.backendUrl}/opportunities`;
+export class OpportunityApplicationService {
+  private readonly baseUrl: string = `${environment.backendUrl}/opportunity-application`;
   constructor(private http: HttpClient) {
   }
 
-  getOpportunities(): Observable<Opportunity[]> {
+  createApplication(additionalInfo: string, opportunityId: number): Observable<Opportunity> {
     const token = localStorage.getItem("authToken")
     const headerDict = {
       'Authorization': "Bearer " + token
@@ -21,11 +21,11 @@ export class OpportunityService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-
-    return this.http.get<Opportunity[]>(`${this.baseUrl}/`, requestOptions);
+    return this.http.post<Opportunity>(`${this.baseUrl}`, {additionalInfo: additionalInfo, opportunityId: opportunityId}, requestOptions);
   }
 
-  getOpportunity(opportunityId: number): Observable<Opportunity> {
+
+  acceptApplication(applicationId: number): Observable<Opportunity> {
     const token = localStorage.getItem("authToken")
     const headerDict = {
       'Authorization': "Bearer " + token
@@ -34,10 +34,10 @@ export class OpportunityService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-    return this.http.get<Opportunity>(`${this.baseUrl}/${opportunityId}`, requestOptions);
+    return this.http.post<Opportunity>(`${this.baseUrl}/accept/${applicationId}`, {}, requestOptions);
   }
 
-  createOpportunity(opportunity: Opportunity): Observable<Opportunity> {
+  denyApplication(applicationId: number): Observable<Opportunity> {
     const token = localStorage.getItem("authToken")
     const headerDict = {
       'Authorization': "Bearer " + token
@@ -46,19 +46,7 @@ export class OpportunityService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-    return this.http.post<Opportunity>(`${this.baseUrl}`, opportunity, requestOptions);
-  }
-
-  applyOpportunity(additionalInfo: string): Observable<Opportunity> {
-    const token = localStorage.getItem("authToken")
-    const headerDict = {
-      'Authorization': "Bearer " + token
-    }
-
-    const requestOptions = {
-      headers: new HttpHeaders(headerDict),
-    };
-    return this.http.post<Opportunity>(`${this.baseUrl}`, {additionalInfo: additionalInfo}, requestOptions);
+    return this.http.post<Opportunity>(`${this.baseUrl}/reject/${applicationId}`, {}, requestOptions);
   }
 }
 

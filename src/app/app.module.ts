@@ -45,6 +45,7 @@ import { HeaderMainOrgComponent } from './header-main-org/header-main-org.compon
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ApplicantListComponent } from './applicant-list/applicant-list.component';
 import { ApplyOpportunityComponent } from './apply-opportunity/apply-opportunity.component';
+import {NgOptimizedImage} from "@angular/common";
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { ApplyOpportunityComponent } from './apply-opportunity/apply-opportunity
         MatTableModule,
         MatSnackBarModule,
         MatToolbarModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgOptimizedImage
     ],
   providers: [
     OpportunityService,

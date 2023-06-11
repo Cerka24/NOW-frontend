@@ -32,12 +32,14 @@ export class RegisterComponent {
     }
 
     this.authService.register(this.registerForm.value).subscribe((data: any) => {
-      console.log(data)
-      //TODO: Save this data to use across app
-      this._snackBar.open("Account created, please log in", '', {
-        duration: 1000
-      })
-      this.router.navigate(["/login"])
+      localStorage.setItem("authToken", data.token)
+      localStorage.setItem("isOrg", data.user.organization)
+      localStorage.setItem("currentId", data.user.id)
+
+      // this._snackBar.open("Account created, please log in", '', {
+      //   duration: 1000
+      // })
+      this.router.navigate(["/onboarding"])
 
     }, error => {
       this._snackBar.open("Unable to register account", '', {

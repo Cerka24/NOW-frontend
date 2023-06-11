@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Onboarding} from "../models/onboarding.model";
 import {Observable, of, throwError} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {OnboardingMetadata} from "../models/onboarding-metadata.model";
 
@@ -12,8 +12,16 @@ export class OnboardingService {
   private readonly baseUrl: string = `${environment.backendUrl}/onboarding`;
 
   constructor(private http: HttpClient) { }
-  onboarding(OnboardingData: Onboarding):Observable<Onboarding>{
-    return this.http.post<Onboarding>(`${this.baseUrl}`, OnboardingData)
+  onboarding(onboardingData: Onboarding):Observable<Onboarding>{
+    const token = localStorage.getItem("authToken")
+    const headerDict = {
+      'Authorization': "Bearer " + token
+    }
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+    return this.http.post<Onboarding>(`${this.baseUrl}`, onboardingData, requestOptions)
   }
 
   getYearAndOrg(): Observable<OnboardingMetadata> {

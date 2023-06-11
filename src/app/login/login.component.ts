@@ -16,6 +16,10 @@ export class LoginComponent {
   constructor(private router:Router, private formBuilder: FormBuilder, private authService: AuthService, private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
+    if(localStorage.getItem("authToken")){
+      this.router.navigate(["/home"])
+    }
+
     this.loginForm = this.formBuilder.group({
       'email': ['', [Validators.required, Validators.email]],
       'password': ['', [Validators.required, Validators.min(6), Validators.max(16)]],
@@ -31,8 +35,9 @@ export class LoginComponent {
     }
 
     this.authService.login(this.loginForm.value).subscribe((data: any) => {
-      console.log("RESPONSE :: ",data)
-      //TODO Save this data to use across app
+      localStorage.setItem("authToken", data.token)
+      localStorage.setItem("isOrg", data.user.organization)
+      localStorage.setItem("currentId", data.user.id)
 
       this.router.navigate(["/home"])
 

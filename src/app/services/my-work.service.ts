@@ -11,10 +11,10 @@ export class MyWorkService {
   private readonly baseUrl: string = `${environment.backendUrl}/my-works`;
   constructor(private http: HttpClient) {}
 
-  /*getWork(): Observable<MyWork[]> {
-    return this.http.get<MyWork[]>(`${this.baseUrl}`);
-  }*/
-  getWork(): Observable<MyWork[]> {
+  // getWork(): Observable<MyWork[]> {
+  //   return this.http.get<MyWork[]>(`${this.baseUrl}`);
+  // }
+ getWork(): Observable<MyWork[]> {
     return of([
       {
         opportunity: 'Angular Developer (Vision)',
@@ -65,5 +65,16 @@ export class MyWorkService {
         status: 'APPROVED'
       }
     ]);
+  }
+
+  createWork(work: MyWork): Observable<MyWork> {
+    console.log('Reached workService with intention to create work:', work);
+    return of({
+      opportunity: 'QA Manual Tester (Junior)',
+      organization: 'QSD',
+      date_created: '15.03.2023',
+      pts: 60,
+      status: 'REJECTED'
+    });
   }
 }
