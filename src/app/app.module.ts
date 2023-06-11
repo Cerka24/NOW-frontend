@@ -39,6 +39,10 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HeaderAuthComponent} from "./header-auth/header-auth.component";
 import { AddOpportunityComponent } from './add-opportunity/add-opportunity.component';
 import {MatFormFieldControl} from "@angular/material/form-field";
+import { HeaderGuestComponent } from './header-guest/header-guest.component';
+import { HeaderMainComponent } from './header-main/header-main.component';
+import { HeaderMainOrgComponent } from './header-main-org/header-main-org.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 
 @NgModule({
@@ -57,7 +61,11 @@ import {MatFormFieldControl} from "@angular/material/form-field";
     StudentListComponent,
     MyWorkComponent,
     HeaderAuthComponent,
-    AddOpportunityComponent
+    AddOpportunityComponent,
+    HeaderGuestComponent,
+    HeaderMainComponent,
+    HeaderMainOrgComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,

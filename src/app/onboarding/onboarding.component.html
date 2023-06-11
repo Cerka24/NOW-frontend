@@ -1,9 +1,15 @@
-<body>
-  <div id="form">
-    <form [formGroup]="onboardingForm" (ngSubmit)="submitForm()" class="example-form">
-      <h2 id="title">Hello! Please tell us a little about <br> yourself.</h2>
-      <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field appearance="fill">
+<app-header-main></app-header-main>
+
+<div class="wrap-center-vertical wrap-column" id="form">
+  <form [formGroup]="onboardingForm" (ngSubmit)="submitForm()" class="expanded-form">
+    <div class="wrap-center-vertical wrap-column separator-down">
+      <h1>Complete your profile ✍️</h1>
+      <p>To get the best experience, fill in these fields.</p>
+    </div>
+
+    <div style="display: flex; gap: 24px">
+      <div class="wrapper-columns-form">
+        <mat-form-field appearance="fill">
           <mat-label>University year</mat-label>
           <mat-select [formControlName]="'universityYear'">
             <mat-option *ngFor="let year of years"
@@ -11,8 +17,9 @@
               {{year}}
             </mat-option>
           </mat-select>
-        </mat-form-field></td>
-        <td><mat-form-field appearance="fill">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
           <mat-label>Choose organization</mat-label>
           <mat-select [formControlName]="'organization'">
             <mat-option *ngFor="let org of organizations"
@@ -20,42 +27,41 @@
               {{org}}
             </mat-option>
           </mat-select>
-        </mat-form-field></td>
-      </tr></table>
+        </mat-form-field>
 
-      <p>
-        <mat-form-field class="example-full-width">
-          <mat-label> Short bio </mat-label>
+        <mat-form-field>
+          <mat-label> Short bio</mat-label>
           <textarea type="text" matInput [formControlName]="'shortBio'" placeholder=""></textarea>
         </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field class="example-full-width">
-          <mat-label> List of certificates </mat-label>
+
+        <mat-form-field >
+          <mat-label> List of certificates</mat-label>
           <textarea type="text" matInput [formControlName]="'certificates'" placeholder=""></textarea>
         </mat-form-field>
-      </p>
-
-      <table class="example-full-width" cellspacing="0">
-        <tr><td><mat-form-field class="example-full-width">
-          <mat-label> Linkedin URL </mat-label>
-          <input type="text" matInput [formControlName]="'linkedinUrl'" placeholder="">
-        </mat-form-field></td>
-        <td><mat-form-field class="example-full-width">
-          <mat-label> GPA </mat-label>
-          <input type="number" matInput [formControlName]="'gpa'" placeholder="Ex. 4.0" value="">
-        </mat-form-field></td>
-        </tr>
-        <td><mat-form-field id="image_upload">
-          <mat-label> Upload image </mat-label>
-          <textarea type="text" matInput [formControlName]="'uploadImage'" placeholder=""></textarea>
-        </mat-form-field></td>
-      </table>
-      <div class="example-button-row" id="example-flex-container">
-        <button type="submit" mat-stroked-button>Submit</button>
-        <button type="button" (click)="navigateToHomepage()" mat-stroked-button>Close</button>
       </div>
-    </form>
-  </div>
-</body>
+
+      <div class="wrapper-columns-form">
+        <mat-form-field >
+          <mat-label> Linkedin URL</mat-label>
+          <input type="text" matInput [formControlName]="'linkedinUrl'" placeholder="">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label> GPA</mat-label>
+          <input type="number" matInput [formControlName]="'gpa'" placeholder="Ex. 4.0" value="">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label> Upload image</mat-label>
+          <textarea type="text" matInput [formControlName]="'uploadImage'" placeholder=""></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="wrap-center-vertical">
+      <button class="primary-button separator-right" mat-flat-button color="primary"type="submit" >Update profile</button>
+      <button class="button-secondary-regular" type="primary-button" (click)="navigateToHomepage()" mat-stroked-button>Skip for now</button>
+    </div>
+  </form>
+</div>
 

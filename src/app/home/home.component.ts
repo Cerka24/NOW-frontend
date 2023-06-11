@@ -16,8 +16,6 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   private opportunityId!: number;
 
-  title = "Now Home"
-
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private opportunityService: OpportunityService) {}
 
   ngOnInit(): void {

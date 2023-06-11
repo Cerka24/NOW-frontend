@@ -1,12 +1,14 @@
 <app-header-auth></app-header-auth>
 
-<div class="wrapper">
-  <div class="container-form">
-    <h1>Login</h1>
+  <div class="wrap-center-vertical wrap-column">
+    <img src="assets/login.svg" alt="illustration">
+    <div class="wrap-center-vertical wrap-column">
+      <h2>Login</h2>
+      <p>Access Your Account</p>
+    </div>
     <div>
-
       <form [formGroup]="loginForm" (ngSubmit)="submit()">
-        <div class="container-inputs">
+        <div class="wrap-column">
           <mat-form-field>
             <mat-label>Email</mat-label>
             <input type="email" matInput [formControlName]="'email'" placeholder="Enter your email">
@@ -20,4 +22,3 @@
       </form>
     </div>
   </div>
-</div>
