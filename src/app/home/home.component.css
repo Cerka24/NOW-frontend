@@ -8,17 +8,8 @@
 
 #card {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-left: 50px;
-  margin-right: 20px;
-  margin-top: 20px;
-}
-
-#title {
-  margin-top: auto;
-  margin-left: 10px;
-  font-weight: bold;
 }
 
 #description {
@@ -31,19 +22,17 @@
   height: auto;
 }
 
-header {
-  padding: 40px;
-  border-bottom-style: solid;
-  display: flex;
-  justify-content: space-between;
-}
-
-header span {
+mat-card-title {
+  padding-left: 12px;
   font-weight: bold;
-  font-size: 20px;
-  padding-top: 5px;
 }
 
-#card:hover {
-
+mat-card-subtitle {
+  padding-left: 12px;
 }
+
+p {
+  font-size: 15px;
+}
+
+

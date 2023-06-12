@@ -1,16 +1,16 @@
 <app-header-main-org></app-header-main-org>
-sdfsdfds
-<section>
-  <div class="example-button-row">
-    <button mat-flat-button (click)="navigateToCreateOpportunity()">ADD NEW OPPORTUNITY</button>
-  </div>
+
+<section class="separator-up-down wrap-space-horizontal">
   <h1>Opportunity dashboard</h1>
+  <div class="wrap-center-vertical">
+    <button id="button" *ngIf="!isOwner" mat-flat-button (click)="navigateToCreateOpportunity()">ADD NEW OPPORTUNITY</button>
+  </div>
 </section>
 
 <div id="grid">
   <div id="card">
     <mat-card (click)="navigateToOpportunity(op.id)" (change)="displayImage(opportunityId)" class="example-card" *ngFor="let op of opportunities;">
-      <img mat-card-image [src]="imagePath" alt="Cover" id="image">
+      <img mat-card-image src="{{op.coverImage}}" alt="Cover" id="image">
       <mat-card-title id="title">{{op.title}}</mat-card-title>
       <mat-card-content>
         <p id="description">
