@@ -1,0 +1,10 @@
+.header-link-text{
+  margin-right: 8px;
+  color: #5F5F5F;
+}
+a{
+  color: #F28245;
+}
+a:hover{
+  color: #cc6933;
+}

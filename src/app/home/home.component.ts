@@ -33,22 +33,9 @@ export class HomeComponent implements OnInit, OnDestroy{
     const path = "opportunity/" + id
     this.router.navigate([path])
   }
-
-  navigateToOrgOpportunity() {
+  navigateToApply() {
     this.router.navigate([
-      'org-opportunity'
-    ]);
+      'opportunity/:id/apply'
+    ])
   }
-
-  navigateToOnboarding(): void {
-    const path = "onboarding"
-    this.router.navigate([path])
-
-  }
-
-  navigateToMyWork(): void {
-    const path = "my-works"
-    this.router.navigate([path])
-  }
-
 }

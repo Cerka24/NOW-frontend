@@ -59,20 +59,14 @@ export class OrgOpportunityComponent implements OnInit, OnDestroy{
       'orgOpportunity/createOpportunity'
     ]);
   }
-  navigateToStudentList() {
-    this.router.navigate([
-      'orgOpportunity/studentList'
-    ])
-  }
   navigateToOpportunity(id: number){
     this.router.navigate([
       'opportunity/' + id
     ])
   }
-
-  navigateToLandingPage() {
+  navigateToDetails() {
     this.router.navigate([
-      'register'
+      'opportunity/:id'
     ])
   }
 }

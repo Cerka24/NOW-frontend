@@ -17,5 +17,19 @@ export class HeaderMainComponent {
     localStorage.clear();
     this.router.navigate(["/"])
   }
-
+  navigateToOpportunities() {
+    this.router.navigate([
+      '/home'
+    ]);
+  }
+  navigateToPortfolio() {
+    this.router.navigate([
+      '/portfolio'
+    ]);
+  }
+  navigateToMyWork() {
+    this.router.navigate([
+      '/my-work'
+    ]);
+  }
 }

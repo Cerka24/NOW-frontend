@@ -1,8 +1,8 @@
 <div class="wrap-space-horizontal separator-up-down wrap-center-vertical">
-  <img src="assets/NOW-logo-org.svg" style="width: 40px">
+  <a href="/orgOpportunity"><img src="assets/NOW-logo-org.svg" style="width: 40px"></a>
   <div>
-    <a class="separator-right">Opportunities</a>
-    <a class="separator-right">Students</a>
+    <a (click)="navigateToOrgOpportunity()" class="separator-right">Opportunities</a>
+    <a (click)="navigateToStudentList()" class="separator-right">Students</a>
   </div>
-  <button type="button" class="button-secondary-regular" mat-flat-button>Logout</button>
+  <button type="button" (click)="logout()" class="button-secondary-regular" mat-flat-button>Logout</button>
 </div>

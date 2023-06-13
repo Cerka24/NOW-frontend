@@ -48,6 +48,9 @@ export class PortfolioComponent {
   public openLinkedin(url: string){
     window.open(url)
   }
-
+  navigateToOnboarding(): void {
+    const path = "onboarding"
+    this.router.navigate([path])
+  }
 
 }

@@ -46,6 +46,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ApplicantListComponent } from './applicant-list/applicant-list.component';
 import { ApplyOpportunityComponent } from './apply-opportunity/apply-opportunity.component';
 import {NgOptimizedImage} from "@angular/common";
+import { HeaderLoginComponent } from './header-login/header-login.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import {NgOptimizedImage} from "@angular/common";
     HeaderMainOrgComponent,
     PortfolioComponent,
     ApplicantListComponent,
-    ApplyOpportunityComponent
+    ApplyOpportunityComponent,
+    HeaderLoginComponent
   ],
     imports: [
         BrowserModule,

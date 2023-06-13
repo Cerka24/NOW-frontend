@@ -97,7 +97,6 @@ const routes: Routes = [
     component: StudentListComponent,
     resolve: {
       'studentLists': StudentListResolver
-
     }
   },
   {
