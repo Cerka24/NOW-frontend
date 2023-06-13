@@ -1,69 +1,15 @@
-header {
-  padding: 40px;
-  display: flex;
-  justify-content: space-between;
+.example-card {
+  max-width: 400px;
 }
 
-#opportunities{
-  color: #cc6933;
-}
-
-header .title a {
-  font-weight: bold;
-}
-
-header div a {
-  font-weight: bold;
-}
-
-div a {
-  padding: 10px;
-  text-decoration: none;
-  color: black;
-}
-
-header img {
-  padding-right: 600px;
-}
-section {
-  display: flex;
-  flex-flow: column;
-  padding-bottom: 20px;
-}
-
-section button {
-  background: #cc6933;
-  color: white;
-  margin-left: 20px;
-}
-
-section h1 {
-  margin-left: 50px;
-  position: absolute;
-}
-section div {
-  margin-top: 20px;
-  margin-left: 1400px;
-  margin-right: 20px;
-}
-
-div span {
-  margin: 20px;
+.example-header-image {
+  background-size: cover;
 }
 
 #card {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-left: 50px;
-  margin-right: 20px;
-  margin-top: 20px;
-}
-
-#title {
-  margin-top: auto;
-  margin-left: 10px;
-  font-weight: bold;
 }
 
 #description {
@@ -76,10 +22,30 @@ div span {
   height: auto;
 }
 
-.example-card {
-  max-width: 350px;
+mat-card-title {
+  padding-left: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 
-.title {
-  display: block;
+mat-card-subtitle {
+  padding-left: 12px;
 }
+
+p {
+  font-size: 15px;
+}
+
+section button {
+  background: #cc6933;
+  color: white;
+}
+
+#button {
+  display: flex;
+  align-items: center;
+}
+
+
+
