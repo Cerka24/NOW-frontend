@@ -17,16 +17,30 @@ export class OrgOpportunityComponent implements OnInit, OnDestroy{
   public opportunityId!: number;
   public imagePath: SafeUrl | undefined;
   public opportunity: Opportunity | undefined;
+  public isOrg: boolean = false;
+  public isOwner: boolean = false;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute, public sanitize: DomSanitizer, private opportunityService: OpportunityService) {
   }
 
   ngOnInit(): void {
+
+    console.log(localStorage.getItem("isOrg"))
+    this.isOrg = localStorage.getItem("isOrg") === "true"
+    const currentId: number = parseInt(localStorage.getItem("currentId") as string)
+
     this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
       this.opportunityId = data['orgOpportunity'];
       this.opportunities = data['orgOpportunity'];
       console.log("DATA :: ", data)
       console.log(this.opportunities)
+
+      const creatorId = data["opportunity"].opportunityDto.organizationId
+
+      if(currentId === creatorId){
+        this.isOwner = true;
+        this.isOrg = true;
+      }
     }));
   }
 
