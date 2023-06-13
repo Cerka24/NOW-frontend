@@ -25,4 +25,17 @@ export class UserService {
 
     return this.http.get<UserModel>(`${this.baseUrl}/profile`, requestOptions)
   }
+
+  getStudentProfile(id: number): Observable<UserModel> {
+    const token = localStorage.getItem("authToken")
+    const headerDict = {
+      'Authorization': "Bearer " + token
+    }
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+
+    return this.http.get<UserModel>(`${this.baseUrl}/profile/${id}`, requestOptions)
+  }
 }

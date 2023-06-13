@@ -1,0 +1,37 @@
+<div mat-dialog-content style="color: inherit; max-height: 100vh" >
+    <div class="wrapper-intro">
+      <div class="wrapper-content">
+        <img src="{{data.profileImage}}" style="width: 150px; object-fit: cover; height: 150px">
+        <div style="margin-top: 40px">
+          <h1>{{data.fullName}}</h1>
+          <p>{{data.email}}</p>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" (click)="copyToClipboard(data.linkedinUrl)" class="button-secondary-regular separator-right" mat-flat-button>Copy Linkedin URL</button>
+        <button type="button" (click)="window.open(data.linkedinUrl)" class="primary-button" mat-flat-button color="primary">View Linkedin</button>
+      </div>
+    </div>
+
+    <div >
+      <div class="wrapper-text">
+        <h3>👋 Short bio</h3>
+        <p>{{data.shortBio}}</p>
+      </div>
+
+      <div>
+        <h3>🎓 Education</h3>
+        <div class="wrap-center-vertical row-gap">
+          <p>University: {{data.universityName}}</p>
+          <p>Year: {{data.universityYear}}</p>
+          <p>GPA: {{data.gpa}}</p>
+        </div>
+      </div>
+      <div>
+        <h3>📝 Certificates</h3>
+       {{data.certificates}}
+      </div>
+
+    </div>
+</div>

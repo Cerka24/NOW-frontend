@@ -5,6 +5,8 @@
 }
 img{
   height: 60vh;
+  width: 40vw;
+  object-fit: cover;
 }
 p{
   line-height: 180%;

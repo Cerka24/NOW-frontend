@@ -3,7 +3,6 @@ export interface Opportunity {
   title: string,
   description: string,
   requirements: string,
-  startDate: Date,
-  endDate: Date,
+  // endDate: Date,
   coverImage: string
 }

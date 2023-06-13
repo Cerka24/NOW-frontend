@@ -1,17 +1,20 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {MyWork} from "../models/my-work.model";
 import {Subscription} from "rxjs";
 import {OpportunityApplicationService} from "../services/opportunity-application";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {OpportunityService} from "../services/opportunity.service";
+import { MatDialog} from "@angular/material/dialog";
+import {PortfolioDialog} from "../portfolio/portfolio-dialog";
+import {UserModel} from "../models/user.model";
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-applicant-list',
   templateUrl: './applicant-list.component.html',
   styleUrls: ['./applicant-list.component.css']
 })
-export class ApplicantListComponent {
+export class ApplicantListComponent implements OnInit {
 
   @Input()  applications: Array<any> = []
   @Input()  opportunityId: number = 0
@@ -20,11 +23,11 @@ export class ApplicantListComponent {
   public displayedColumns: string[] = [];
   private unsubscribe: Subscription | undefined;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private _snackBar: MatSnackBar, private opportunityApplicationService: OpportunityApplicationService, private opportunityService: OpportunityService) {
+  constructor(private router: Router, public dialog: MatDialog, private activatedRoute: ActivatedRoute, private _snackBar: MatSnackBar, private opportunityApplicationService: OpportunityApplicationService, private opportunityService: OpportunityService) {
   }
 
   ngOnInit(): void {
-    this.displayedColumns = ['fullName', 'email', 'phone', 'coverLetter', 'action'];
+    this.displayedColumns = ['fullName', 'email', 'phone', 'coverLetter','appliedAt', 'action'];
     this.unsubscribe = this.activatedRoute.data.subscribe(data => {
       //this.applicants = data['applicants'];
     });
@@ -36,6 +39,17 @@ export class ApplicantListComponent {
 
   public isPending(status: string){
     return status === "Pending";
+  }
+
+  public openStudentProfile(student: UserModel, onboarding: object){
+    console.log(student)
+    this.dialog.open(PortfolioDialog, {
+      height: '80%',
+      data: {
+        ...student,
+        ...onboarding
+      },
+    });
   }
 
   private loadApplicants() {
@@ -74,4 +88,8 @@ export class ApplicantListComponent {
       })
     })
   }
+
+  protected readonly formatDate = formatDate;
 }
+
+

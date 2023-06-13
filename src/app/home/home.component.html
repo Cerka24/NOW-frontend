@@ -1,23 +1,30 @@
 <app-header-main></app-header-main>
 
-<div>
-  <h2>The Land of opportunities 🏰</h2>
-  <h4>All volunteer jobs are below, apply forever free.</h4>
+<div class="wrap-space-horizontal">
+  <div>
+    <h2>The Land of opportunities 🏰</h2>
+    <h4>All volunteer jobs are below, apply forever free.</h4>
+  </div>
+
+  <button id="button" *ngIf="isOrg" mat-flat-button color="primary" (click)="navigateToCreateOpportunity()">ADD NEW +</button>
+</div>
+
+<div class="wrap-center" *ngIf="!opportunities.length">
+  <h4>You did not add any opportunities</h4>
 </div>
 
 <div id="card">
   <mat-card (click)="navigateToOpportunity(op.id)" class="example-card" *ngFor="let op of opportunities;">
-    <img mat-card-image src="{{op.coverImage}}" alt="Cover">
+    <img mat-card-image src="{{op.coverImage}}" alt="Cover" class="header-image" >
     <mat-card-subtitle>Opportunity</mat-card-subtitle>
     <mat-card-title>{{op.title}}</mat-card-title>
     <mat-card-content>
       <p>
-        {{op.description}}
+        {{op.description.substring(0, 35)}}...
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="navigateToApply()" mat-button>APPLY</button>
-      <button mat-button>SHARE</button>
+      <button (click)="navigateToOpportunity(op.id)" mat-button>See more</button>
     </mat-card-actions>
   </mat-card>
 </div>

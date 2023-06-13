@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
 import {OpportunityService} from "../services/opportunity.service";
@@ -8,10 +8,17 @@ import {OpportunityService} from "../services/opportunity.service";
   templateUrl: './header-main.component.html',
   styleUrls: ['./header-main.component.css']
 })
-export class HeaderMainComponent {
+export class HeaderMainComponent implements OnInit {
+
+
+  public isOrg: boolean = false
 
 
   constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.isOrg = localStorage.getItem("isOrg") === "true"
+  }
 
   public logout(){
     localStorage.clear();

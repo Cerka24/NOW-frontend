@@ -1,9 +1,14 @@
 .example-card {
-  max-width: 400px;
+  max-width: 350px;
+  height: 350px;
 }
 
-.example-header-image {
+img {
   background-size: cover;
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 #card {
@@ -16,11 +21,6 @@
   text-align: justify;
 }
 
-#image {
-  margin-bottom: auto;
-  width: 100%;
-  height: auto;
-}
 
 mat-card-title {
   padding-left: 12px;

@@ -14,11 +14,14 @@ export class HomeComponent implements OnInit, OnDestroy{
   public opportunities: Array<Opportunity> = []
   private unsubscribe: Subscription[] = [];
 
-  private opportunityId!: number;
+  public isOrg: boolean = false
+
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private opportunityService: OpportunityService) {}
 
   ngOnInit(): void {
+    this.isOrg = localStorage.getItem("isOrg") === "true"
+
     if(!localStorage.getItem("authToken")){
       this.router.navigate(["/"])
     }
@@ -29,6 +32,11 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.unsubscribe.forEach(obs => obs.unsubscribe());
   }
 
+  navigateToCreateOpportunity() {
+    this.router.navigate([
+      'create-opportunity'
+    ]);
+  }
   navigateToOpportunity(id: number): void {
     const path = "opportunity/" + id
     this.router.navigate([path])

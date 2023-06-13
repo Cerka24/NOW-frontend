@@ -1,1 +1,40 @@
-<app-create-opportunity (saveOpportunity)="createOpportunity($event)"></app-create-opportunity>
+<app-header-main></app-header-main>
+
+<div class="wrap-center-vertical wrap-column" id="form">
+  <div class="wrap-center-vertical wrap-column">
+    <h1>
+      {{existingOpportunity ? 'Edit opportunity' :'➕ Add new opportunity'}}
+    </h1>
+    <p>To find best talent, fill in these fields.</p>
+  </div>
+
+  <div>
+  <form [formGroup]="addOpportunityForm" (ngSubmit)="submitForm()" class="expanded-form">
+    <div class="wrap-column">
+        <mat-form-field>
+          <mat-label> Title </mat-label>
+          <input type="text" matInput [formControlName]="'title'" placeholder="Enter title">
+        </mat-form-field>
+
+        <mat-form-field >
+          <mat-label>Descirption</mat-label>
+          <textarea type="text" matInput [formControlName]="'description'" placeholder="Enter description"></textarea>
+        </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Requirements</mat-label>
+        <textarea type="text" matInput [formControlName]="'requirements'" placeholder="Enter requirements"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label> Cover Image </mat-label>
+        <input type="text" matInput [formControlName]="'coverImage'" placeholder="Enter cover image URL">
+      </mat-form-field>
+    </div>
+    <div class="wrap-center-vertical">
+      <button class="primary-button separator-right" mat-flat-button color="primary" type="submit" >{{existingOpportunity ? 'Edit' : 'Create'}}</button>
+    </div>
+  </form>
+  </div>
+</div>
+

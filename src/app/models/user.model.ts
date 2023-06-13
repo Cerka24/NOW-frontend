@@ -7,5 +7,6 @@ export interface UserModel {
   universityYear: string,
   shortBio: string,
   linkedinUrl: string,
-  profileImageUrl: string,
+  profileImage: string,
+  gpa: number
 }

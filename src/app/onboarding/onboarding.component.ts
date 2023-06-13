@@ -5,6 +5,7 @@ import {Onboarding} from "../models/onboarding.model";
 import {OnboardingService} from "../services/onboarding.service";
 import {Subscription} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {UserModel} from "../models/user.model";
 /**
  * @title Inputs in a form
  */
@@ -19,21 +20,53 @@ export class OnboardingComponent implements OnInit, OnDestroy {
   public years: number[] = [];
   public organizations: string[] = [];
   private unsubscribe: Subscription[] = [];
+  public existingData: Onboarding = {
+    id: 0,
+    universityName: '',
+    universityYear: 0,
+    shortBio: '',
+    certificates: '',
+    linkedinUrl: '',
+    profileImage: '',
+    gpa: 0,
+  };
+
   constructor(private formBuilder: FormBuilder,
               private router: Router,
+              private activatedRoute: ActivatedRoute,
               private onboardingService: OnboardingService,  private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
 
-    this.onboardingForm = this.formBuilder.group({
-      'universityYear': ['', [Validators.required]],
-      'universityName': ['', [Validators.required]],
-      'shortBio': ['', [Validators.required]],
-      'certificates': ['', [Validators.required]],
-      'linkedinUrl': ['', [Validators.required]],
-      'gpa': ['', [Validators.required]],
-      'profileImage': ['', [Validators.required]]
-    });
+    this.activatedRoute.data.subscribe(data => {
+      console.log("MY PROFILE :: ", data["onboarding"].onboarding)
+      this.existingData = data["onboarding"].onboarding
+    })
+
+    if(this.existingData) {
+
+      this.onboardingForm = this.formBuilder.group({
+        'universityYear': [this.existingData.universityYear, [Validators.required]],
+        'universityName': [this.existingData.universityName, [Validators.required]],
+        'shortBio': [this.existingData.shortBio, [Validators.required]],
+        'certificates': [this.existingData.certificates, [Validators.required]],
+        'linkedinUrl': [this.existingData.linkedinUrl, [Validators.required]],
+        'gpa': [this.existingData.gpa, [Validators.required]],
+        'profileImage': [this.existingData.profileImage, [Validators.required]]
+      });
+    } else {
+
+      this.onboardingForm = this.formBuilder.group({
+        'universityYear': ['', [Validators.required]],
+        'universityName': ['', [Validators.required]],
+        'shortBio': ['', [Validators.required]],
+        'certificates': ['', [Validators.required]],
+        'linkedinUrl': ['', [Validators.required]],
+        'gpa': ['', [Validators.required]],
+        'profileImage': ['', [Validators.required]]
+      });
+    }
+
 
     this.unsubscribe.push(
       this.onboardingService.getYearAndOrg().subscribe((metadata) => {

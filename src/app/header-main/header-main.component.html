@@ -1,9 +1,10 @@
 <div class="wrap-space-horizontal separator-up-down wrap-center-vertical">
   <a href="/home"><img src="assets/NOW-logo.svg" style="width: 40px"></a>
   <div>
-    <a (click)="navigateToOpportunities()" class="separator-right">Opportunities</a>
-    <a (click)="navigateToPortfolio()" class="separator-right">Portfolio</a>
-    <a (click)="navigateToMyWork()">My work</a>
+    <a *ngIf="!isOrg" (click)="navigateToOpportunities()" class="separator-right">Opportunities</a>
+    <a *ngIf="isOrg" (click)="navigateToOpportunities()" class="separator-right">My Opportunities</a>
+    <a *ngIf="!isOrg" (click)="navigateToPortfolio()" class="separator-right">Portfolio</a>
+    <a *ngIf="!isOrg" (click)="navigateToMyWork()">My work</a>
   </div>
   <button type="button" (click)="logout()" class="button-secondary-regular" mat-flat-button>Logout</button>
 </div>

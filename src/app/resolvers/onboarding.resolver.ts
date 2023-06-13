@@ -5,21 +5,16 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import {OnboardingService} from "../services/onboarding.service";
-import {Onboarding} from "../models/onboarding.model";
+import {UserService} from "../services/user-service";
+import {UserModel} from "../models/user.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class OnboardingResolver implements Resolve<Onboarding> {
+export class OnboardingResolver implements Resolve<UserModel> {
 
-  constructor(private onboardingService: OnboardingService) {}
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Onboarding> {
-    const id = route.paramMap.get('id');
-    if(!id) {
-      // handle error
-    }
-    return this.onboardingService.getById(+id!)
-
+  constructor(private userService: UserService) {}
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<UserModel> {
+    return this.userService.getProfile();
   }
 }

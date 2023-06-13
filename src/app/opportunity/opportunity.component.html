@@ -1,24 +1,23 @@
-<app-header-main-org></app-header-main-org>
+<app-header-main></app-header-main>
 <div>
   <div class="wrapper-content">
-    <img src="{{coverImage}}">
+    <img src="{{coverImage}}" style="cover-img">
     <div>
       <h2>{{title}}</h2>
       <div>
-        <p>Posted on: 23.03.2023.</p>
-        <p>Organisation: SSST University</p>
+        <p>Posted on: {{formatDate(createdAt, "dd. MMM yyyy hh:mm", "en-US ")}}</p>
+        <p>Organisation: {{organization}}</p>
       </div>
-      <h4>❗ Deadline: 01.05.2023.</h4>
       <div>
-        <button *ngIf="isOwner" type="button" class="primary-button separator-right" mat-flat-button color="primary">Edit details</button>
-        <button *ngIf="isOwner" type="button" class="button-secondary-regular" mat-stroked-button>Delete opportunity</button>
+        <button *ngIf="isOwner" (click)="openEdit(id)" type="button" class="primary-button separator-right" mat-flat-button color="primary">Edit details</button>
         <button *ngIf="!isOwner && !isApplied" type="button" (click)="openApply(id)" class="primary-button separator-right" mat-flat-button color="primary">Apply</button>
         <h4  *ngIf="isApplied" > Applied at: {{formatDate(appliedAt, "dd. MMM yyyy hh:mm", "en-US ")}}</h4>
-
+        <p  *ngIf="isApplied" > Application status: {{applicationStatus}}</p>
       </div>
     </div>
   </div>
-  <h3>Applicants</h3>
+
+  <h3 *ngIf="isOwner">Applicants</h3>
 
   <app-applicant-list *ngIf="isOwner" [applications]="applicants" [opportunityId]="id"/>
   <div>
