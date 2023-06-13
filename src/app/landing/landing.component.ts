@@ -9,9 +9,4 @@ import {Router, ActivatedRoute} from "@angular/router";
 export class LandingComponent {
   constructor(private router:Router) {
   }
-
-  navigateToOrgRegister(): void {
-    const path = 'org/register';
-    this.router.navigate([path])
-  }
 }

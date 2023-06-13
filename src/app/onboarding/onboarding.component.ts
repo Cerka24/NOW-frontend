@@ -75,11 +75,4 @@ export class OnboardingComponent implements OnInit, OnDestroy {
     const path = ""
     this.router.navigate([path])
   }
-
-  navigateToLandingPage() {
-    this.router.navigate([
-      ''
-    ])
-  }
-
 }
